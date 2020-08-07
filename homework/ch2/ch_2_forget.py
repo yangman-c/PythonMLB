@@ -35,6 +35,6 @@ for n_neighbors, ax in zip([1,3,9], axes):
     ax.set_xlabel("feature 0")
     ax.set_ylabel("feature 1")
 axes[0].legend(loc=3)
-plt.show()
+# plt.show()
 
 sys.exit()
