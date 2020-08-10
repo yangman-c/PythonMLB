@@ -51,20 +51,6 @@ def initDatasets(allData, lastDay):
         YArr.append([allData[i + lastDay - 1][x] for x in [3, 4, 5, 6]])
     return XArr, YArr
 
-# 构造训练数据
-def makeTrainingData(allData, lastDay, forwardDay):
-    XArr = []
-    YArr = []
-    for i in range(len(allData) - lastDay - forwardDay):
-        # 将前lastDay的数据拼接起来，作为一条数据模型
-        data = allData[i:i+lastDay]
-        XArr.append([n for x in data for n in x])
-        # 预测第forwardDay天的y
-        # 目标数据采样start,end,max,min
-        YArr.append([allData[i + lastDay + forwardDay][x] for x in [3, 4, 5, 6]])
-    # print(len(XArr), len(YArr), len(XArr[0]),len(YArr[0]))
-    return XArr, np.array(YArr)
-
 def learn1(X,y,testScore)->LinearRegression:
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
     liner = LinearRegression()
@@ -117,14 +103,16 @@ def predict(i, xp, xa, ya, algorithem, testScore):
         liner = learn3(xa, ya[:, i], testScore)
     return liner.predict(xp)
 
+# 测试数据使用的5天前的XArr，来预测最近五天的数据，以便和真实数据：最近五天的YArr对比。
+# 但考虑到该数据实际上学习过，所以可能出现过拟合的情况。
+# 正常情况是使用最近一天的XArr，来预测未来五天的数据
 def predictByCode(XArr, YArr, algorithem, forwardDay, testScore):
-    # XArr, YArr = makeTrainingData(XArr, YArr, lastDay, forwardDay)
     # 构造训练数据
     xa = XArr[:len(XArr) - forwardDay]
     ya = np.array(YArr[forwardDay:])
-    print("forwardDay:{} YArr:{}".format(forwardDay, YArr[forwardDay-6]))
-    # p = [predict(i, [XArr[-6]], xa, ya, algorithem, testScore) for i in range(len(YArr[0]))]
-    p = predict2([XArr[-6]], xa, ya, algorithem, testScore)
+    # print("forwardDay:{} YArr:{}".format(forwardDay, YArr[forwardDay-6]))
+    # p = [predict(i, [XArr[-1]], xa, ya, algorithem, testScore) for i in range(len(YArr[0]))]
+    p = predict2([XArr[-1]], xa, ya, algorithem, testScore)
     p = [round(x, 2) for n in p for x in n]
     print("algorithem:{} pred:{}".format(algorithem, p))
 
@@ -132,23 +120,26 @@ def predictByCode(XArr, YArr, algorithem, forwardDay, testScore):
 def main(code):
     testScore = False
     allData = readDB(code)
-    XArr, YArr = initDatasets(allData, 30)
+    lastDay = 30
+    forwardDay = 5
+    XArr, YArr = initDatasets(allData, lastDay)
     try:
-        for i in range(5):
+        for i in range(forwardDay):
             predictByCode(XArr, YArr, 1, i + 1, testScore)
         print()
-        for i in range(5):
+        for i in range(forwardDay):
             predictByCode(XArr, YArr, 2, i + 1, testScore)
         print()
-        for i in range(5):
+        for i in range(forwardDay):
             predictByCode(XArr, YArr, 3, i + 1, testScore)
         print()
     except Exception as err:
         print(err)
 
+
+
+
 if len(sys.argv) > 1:
     main(sys.argv[1])
-
-# main("002300")
 
 sys.exit()
