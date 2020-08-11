@@ -1,4 +1,6 @@
 import sys
+import time
+
 import pymysql
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
@@ -52,7 +54,7 @@ def initDatasets(allData, lastDay):
     return XArr, YArr
 
 def learn1(X,y,testScore)->LinearRegression:
-    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
     liner = LinearRegression()
     liner.fit(X_train, y_train)
     if testScore:
@@ -62,7 +64,7 @@ def learn1(X,y,testScore)->LinearRegression:
     return liner
 
 def learn2(X,y,testScore)->RandomForestRegressor:
-    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
     forest = RandomForestRegressor(n_estimators=5, random_state=2)
     forest.fit(X_train, y_train)
     if testScore:
@@ -72,7 +74,7 @@ def learn2(X,y,testScore)->RandomForestRegressor:
     return forest
 
 def learn3(X,y,testScore)->DecisionTreeRegressor:
-    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
     tree = DecisionTreeRegressor(max_depth=4, random_state=0)
     tree.fit(X_train, y_train)
     if testScore:
@@ -111,8 +113,8 @@ def predictByCode(XArr, YArr, algorithem, forwardDay, testScore):
     xa = XArr[:len(XArr) - forwardDay]
     ya = np.array(YArr[forwardDay:])
     # print("forwardDay:{} YArr:{}".format(forwardDay, YArr[forwardDay-6]))
-    # p = [predict(i, [XArr[-1]], xa, ya, algorithem, testScore) for i in range(len(YArr[0]))]
-    p = predict2([XArr[-1]], xa, ya, algorithem, testScore)
+    p = [predict(i, [XArr[-1]], xa, ya, algorithem, testScore) for i in range(len(YArr[0]))]
+    # p = predict2([XArr[-1]], xa, ya, algorithem, testScore)
     p = [round(x, 2) for n in p for x in n]
     print("algorithem:{} pred:{}".format(algorithem, p))
 
@@ -120,8 +122,8 @@ def predictByCode(XArr, YArr, algorithem, forwardDay, testScore):
 def main(code):
     testScore = False
     allData = readDB(code)
-    lastDay = 30
-    forwardDay = 5
+    lastDay = 60
+    forwardDay = 30
     XArr, YArr = initDatasets(allData, lastDay)
     try:
         for i in range(forwardDay):
@@ -140,6 +142,8 @@ def main(code):
 
 
 if len(sys.argv) > 1:
+    print("start! {}".format(time.strftime("%Y/%m/%d %H:%M:%S")))
     main(sys.argv[1])
+    print("over! {}".format(time.strftime("%Y/%m/%d %H:%M:%S")))
 
 sys.exit()
