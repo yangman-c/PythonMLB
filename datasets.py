@@ -95,13 +95,15 @@ def getData(code)->str:
         respones = urlopen(url)
     except Exception as err:
         print("err:{}".format(err))
-        sys.exit()
+        return "", err
     data = respones.read()
     # print(data)
-    return str(data)
+    return str(data), None
 
 def createTable(con, code):
-    data = getData(code)
+    data, err = getData(code)
+    if err != None:
+        return err
     klinesIndex = 0
     try:
         klinesIndex = data.index("klines")
@@ -129,7 +131,9 @@ for head in heads:
     for i in range(0, 1000):
         code = "{}{}".format(head, str(i).zfill(3))
         print("handle:{}".format(code))
-        createTable(con, code)
+        err = createTable(con, code)
+        if err != None:
+            print(err)
 
 print("over! {}".format(time.strftime("%Y/%m/%d %H:%M:%S")))
 sys.exit()

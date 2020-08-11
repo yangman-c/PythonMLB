@@ -117,27 +117,34 @@ def predictByCode(XArr, YArr, algorithem, forwardDay, testScore):
     # p = predict2([XArr[-1]], xa, ya, algorithem, testScore)
     p = [round(x, 2) for n in p for x in n]
     print("algorithem:{} pred:{}".format(algorithem, p))
+    return p
 
 
 def main(code):
     testScore = False
     allData = readDB(code)
     lastDay = 60
-    forwardDay = 30
+    forwardDay = 10
     XArr, YArr = initDatasets(allData, lastDay)
+    allP = [[],[],[]]
     try:
         for i in range(forwardDay):
-            predictByCode(XArr, YArr, 1, i + 1, testScore)
+            allP[0].append(predictByCode(XArr, YArr, 1, i + 1, testScore))
         print()
         for i in range(forwardDay):
-            predictByCode(XArr, YArr, 2, i + 1, testScore)
+            allP[1].append(predictByCode(XArr, YArr, 2, i + 1, testScore))
         print()
         for i in range(forwardDay):
-            predictByCode(XArr, YArr, 3, i + 1, testScore)
+            allP[2].append(predictByCode(XArr, YArr, 3, i + 1, testScore))
         print()
     except Exception as err:
         print(err)
-
+    allP = np.array(allP)
+    # 把allP(三组预测)对位相加再除以行数(同列求均值)，且保留两位小数
+    allP = allP[0] + allP[1] + allP[2]
+    allP = np.round(allP / 3, 2)
+    print("AVERAGE:")
+    print(allP)
 
 
 
