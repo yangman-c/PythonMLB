@@ -65,7 +65,7 @@ def learn1(X,y,testScore)->LinearRegression:
 
 def learn2(X,y,testScore)->RandomForestRegressor:
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
-    forest = RandomForestRegressor(n_estimators=5, random_state=2)
+    forest = RandomForestRegressor(n_estimators=20, random_state=2)
     forest.fit(X_train, y_train)
     if testScore:
         trainScore = forest.score(X_train, y_train)
@@ -124,7 +124,7 @@ def main(code):
     testScore = False
     allData = readDB(code)
     lastDay = 60
-    forwardDay = 10
+    forwardDay = 3
     XArr, YArr = initDatasets(allData, lastDay)
     allP = [[],[],[]]
     try:
