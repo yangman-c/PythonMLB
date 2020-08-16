@@ -20,8 +20,39 @@ def connectDB()->pymysql.connect:
         sys.exit()
     return con
 
-def readDB(id):
-    con = connectDB()
+z_000001 = []
+z_399001 = []
+z_399006 = []
+def readZS(con:pymysql.connect):
+    cursor = con.cursor()
+    try:
+        cursor.execute('''select *from z_000001''')
+        z_000001 = list(cursor.fetchall())
+        cursor.execute('''select *from z_399001''')
+        z_399001 = list(cursor.fetchall())
+        cursor.execute('''select *from z_399006''')
+        z_399006 = list(cursor.fetchall())
+    except Exception as err:
+        print("select err:{}".format(err))
+    for data in [z_000001, z_399001, z_399006]:
+        for i in range(len(data)):
+            elem = list(data[i])
+            d = elem[0]
+            data[i] = [d.year, d.month, d.day] + elem[1:]
+
+def getZSByCode(code):
+    head = code[0]
+    if head == "6":
+        return z_000001
+    elif head == "0":
+        return z_399001
+    elif head == "3":
+        return z_399006
+    else:
+        return z_000001
+
+
+def readDB(con:pymysql.connect, id):
     cursor = con.cursor()
     length = 0
     try:
@@ -39,9 +70,9 @@ def readDB(id):
         allData[i] = data
     cursor.close()
     con.close()
-    return allData
+    return allData, getZSByCode(id)[-length:]
 
-def initDatasets(allData, lastDay):
+def initDatasets(allData, dpAllData, lastDay):
     XArr = []
     YArr = []
     lastData = allData[-1]
@@ -49,15 +80,16 @@ def initDatasets(allData, lastDay):
     for i in range(len(allData) - lastDay + 1):
         # 将前lastDay的数据拼接起来，作为一条数据模型
         data = allData[i:i+lastDay]
-        xData = [n for x in data for n in x]
+        dpData = dpAllData[i:i+lastDay]
+        xData = [n for x in data for n in x] + [n for x in dpData for n in x]
         # 将第3~8位置的数值进行处理
-        for j in range(lastDay):
-            xData[n * j + 3] = (xData[n * j + 3] / lastData[3] - 1) * 100
-            xData[n * j + 4] = (xData[n * j + 4] / lastData[3] - 1) * 100
-            xData[n * j + 5] = (xData[n * j + 5] / lastData[3] - 1) * 100
-            xData[n * j + 6] = (xData[n * j + 6] / lastData[3] - 1) * 100
-            xData[n * j + 7] = xData[n * j + 7] / 1000
-            xData[n * j + 8] = xData[n * j + 8] / 1000000
+        # for j in range(lastDay):
+        #     xData[n * j + 3] = (xData[n * j + 3] / lastData[3] - 1) * 100
+        #     xData[n * j + 4] = (xData[n * j + 4] / lastData[3] - 1) * 100
+        #     xData[n * j + 5] = (xData[n * j + 5] / lastData[3] - 1) * 100
+        #     xData[n * j + 6] = (xData[n * j + 6] / lastData[3] - 1) * 100
+        #     xData[n * j + 7] = xData[n * j + 7] / 1000
+        #     xData[n * j + 8] = xData[n * j + 8] / 1000000
 
         XArr.append(xData)
         # 预测第forwardDay天的y
@@ -133,11 +165,14 @@ def predictByCode(XArr, YArr, algorithem, forwardDay, testScore):
 
 
 def main(code):
-    testScore = True
-    allData = readDB(code)
-    lastDay = 60
+    code = str(code)
+    testScore = False
+    con = connectDB()
+    readZS(con)
+    allData, dpAllData = readDB(con, code)
+    lastDay = 30
     forwardDay = 3
-    XArr, YArr = initDatasets(allData, lastDay)
+    XArr, YArr = initDatasets(allData, dpAllData, lastDay)
     allP = [[],[],[]]
     try:
         for i in range(forwardDay):
@@ -163,6 +198,6 @@ if len(sys.argv) > 1:
     main(sys.argv[1])
     print("over! {}".format(time.strftime("%Y/%m/%d %H:%M:%S")))
 
-# main(300015)
+# main('600585')
 
 sys.exit()
