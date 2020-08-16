@@ -1,0 +1,54 @@
+start! 2020/08/16 16:01:28
+LinearRegression train score:0.9999390919036625 test score:0.999624067109811
+LinearRegression train score:0.9996034792065253 test score:0.9976014172700252
+LinearRegression train score:0.9997960456099583 test score:0.9987929197201502
+LinearRegression train score:0.9998119109164109 test score:0.9986606339047011
+algorithem:1 pred:[43.67, 42.54, 43.94, 43.01]
+LinearRegression train score:0.9995531439821524 test score:0.9968716733794586
+LinearRegression train score:0.9993020508137894 test score:0.9956121054144973
+LinearRegression train score:0.9994644603428778 test score:0.9965652111904807
+LinearRegression train score:0.9994243638917147 test score:0.9958567022798706
+algorithem:1 pred:[43.18, 42.78, 43.8, 41.68]
+LinearRegression train score:0.9992887696032584 test score:0.9946131059700087
+LinearRegression train score:0.9990589758573339 test score:0.9933528421865263
+LinearRegression train score:0.9992418836296347 test score:0.9942384227012497
+LinearRegression train score:0.999154168216124 test score:0.9931719469807648
+algorithem:1 pred:[44.41, 44.35, 45.23, 43.6]
+
+RandomForestRegressor train score:0.999897277224974 test score:0.9996991514539757
+RandomForestRegressor train score:0.9997494639265881 test score:0.9981381311392755
+RandomForestRegressor train score:0.9998565435833273 test score:0.9989655198410394
+RandomForestRegressor train score:0.9998470708570537 test score:0.9990151917280085
+algorithem:2 pred:[44.77, 45.69, 46.42, 45.26]
+RandomForestRegressor train score:0.9997104968556634 test score:0.9986073677537887
+RandomForestRegressor train score:0.9996643393281355 test score:0.9980164863876952
+RandomForestRegressor train score:0.9997111161293698 test score:0.9984454614026156
+RandomForestRegressor train score:0.9996419793760878 test score:0.9983349729599253
+algorithem:2 pred:[45.69, 46.3, 46.67, 45.23]
+RandomForestRegressor train score:0.9996300114269352 test score:0.9981596011375967
+RandomForestRegressor train score:0.9996017708848073 test score:0.9979361824621664
+RandomForestRegressor train score:0.9996206423608337 test score:0.9982248973745755
+RandomForestRegressor train score:0.9996228597104038 test score:0.9982712818199699
+algorithem:2 pred:[46.3, 46.29, 46.49, 45.68]
+
+DecisionTreeRegressor train score:0.9958250826557381 test score:0.9957594797628124
+DecisionTreeRegressor train score:0.995608595405889 test score:0.9945605632421539
+DecisionTreeRegressor train score:0.9958513787373812 test score:0.9931925167970822
+DecisionTreeRegressor train score:0.9956898604831619 test score:0.9953266857020735
+algorithem:3 pred:[45.27, 45.29, 46.03, 44.24]
+DecisionTreeRegressor train score:0.9953863541140895 test score:0.9937110105003066
+DecisionTreeRegressor train score:0.9951315202880611 test score:0.9942574698192291
+DecisionTreeRegressor train score:0.9954743073124238 test score:0.9944561460436323
+DecisionTreeRegressor train score:0.9950239325355112 test score:0.9935850408427721
+algorithem:3 pred:[45.13, 45.24, 46.15, 44.34]
+DecisionTreeRegressor train score:0.9949083209702284 test score:0.9931677868835074
+DecisionTreeRegressor train score:0.9943598859963028 test score:0.9945205610307785
+DecisionTreeRegressor train score:0.9950356728305567 test score:0.9948383747194072
+DecisionTreeRegressor train score:0.9947016886970425 test score:0.993915403686267
+algorithem:3 pred:[45.11, 45.19, 46.02, 44.19]
+
+AVERAGE:
+[[44.57 44.51 45.46 44.17]
+ [44.67 44.77 45.54 43.75]
+ [45.27 45.28 45.91 44.49]]
+over! 2020/08/16 16:03:44

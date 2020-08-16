@@ -27,10 +27,10 @@ def insertData(con:pymysql.connect, kLineData:list, table: object)->bool:
     except Exception:
         return False
 
-def initTable(con: pymysql.connect, datas: list, code: str):
+def initTable(con: pymysql.connect, datas: list, code: str, valueType:str):
     if len(datas[0][0]) != 10:
         return
-    table = "s_{}".format(code)
+    table = "{}_{}".format(valueType, code)
     isNew = False
     try:
         con.cursor().execute('''create table {} (
@@ -63,30 +63,24 @@ def initTable(con: pymysql.connect, datas: list, code: str):
         else:
             print("insert 0")
 
-def getKLineDayUrl_SZ(id, t)->str:
-    return "http://push2his.eastmoney.com/api/qt/stock/kline/get?cb=jQuery1124009517967901227564_1597003341751&fields1=f1,f2,f3,f4,f5,f6&fields2=f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid=0.{}&beg=0&end=20500000&_={}".format(id, t)
-    # return "http://18.push2his.eastmoney.com/api/qt/stock/kline/get?cb=jQuery112408003210799893224_1596771552775&secid=0.{}&ut=fa5fd1943c7b386f172d6893dbfba10b&fields1=f1,f2,f3,f4,f5,f6,f7,f8&fields2=f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61&klt=101&fqt=0&end=20500101&lmt=120&_={}".format(id, t)
+def getKLineDayUrl(prev, id, t)->str:
+    return "http://push2his.eastmoney.com/api/qt/stock/kline/get?cb=jQuery1124009517967901227564_1597003341751&fields1=f1,f2,f3,f4,f5,f6&fields2=f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid={}.{}&beg=0&end=20500000&_={}".format(prev, id, t)
 
-def getKLineDayUrl_SH(id, t)->str:
-    return "http://push2his.eastmoney.com/api/qt/stock/kline/get?fields1=f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f11,f12,f13&fields2=f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61&beg=0&end=20500101&ut=fa5fd1943c7b386f172d6893dbfba10b&rtntype=6&secid=1.{}&klt=101&fqt=1&cb=jsonp{}".format(id, t)
-    # return "https://push2his.eastmoney.com/api/qt/stock/kline/get?secid=1.{}&fields1=f1,f2,f3,f4,f5&fields2=f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61&lmt=58&klt=101&fqt=1&end=30000101&ut=7c79e534975b3d70bd0fbf36bcc54cc1&cb=cb_{}_89231297&cb_{}_89231297=cb_{}_89231297".format(id, t,t,t)
-
-def getData(code)->str:
+def getData(code, valueType)->str:
     t = int(time.time() * 1000)
-    codeHead = code[:3]
+    codeHead = code[:1]
     url = ""
-    if codeHead == "600":
-        url = getKLineDayUrl_SH(code, t)
-    elif codeHead == "601":
-        url = getKLineDayUrl_SH(code, t)
-    elif codeHead == "603":
-        url = getKLineDayUrl_SH(code, t)
-    elif codeHead == "002":
-        url = getKLineDayUrl_SZ(code, t)
-    elif codeHead == "000":
-        url = getKLineDayUrl_SZ(code, t)
-    elif codeHead == "300":
-        url = getKLineDayUrl_SZ(code, t)
+    if code == "000001" and valueType == "z":
+        if valueType == "z":
+            url = getKLineDayUrl(1, code, t)
+        else:
+            url = getKLineDayUrl(0, code, t)
+    elif codeHead == "6":
+        url = getKLineDayUrl(1, code, t)
+    elif codeHead == "0":
+        url = getKLineDayUrl(0, code, t)
+    elif codeHead == "3":
+        url = getKLineDayUrl(0, code, t)
     else:
         url = url
     req = Request(url)
@@ -100,8 +94,9 @@ def getData(code)->str:
     # print(data)
     return str(data), None
 
-def createTable(con, code):
-    data, err = getData(code)
+def createTable(con, code, valueType):
+    print("handle:{}".format(code))       
+    data, err = getData(code, valueType)
     if err != None:
         return err
     klinesIndex = 0
@@ -117,9 +112,10 @@ def createTable(con, code):
     for i in range(0, len(klineDatas)):
         info = klineDatas[i]
         klineDatas[i] = info.split(",")
-    initTable(con, klineDatas, code)
+    initTable(con, klineDatas, code, valueType)
 
 print("start! {}".format(time.strftime("%Y/%m/%d %H:%M:%S")))
+
 con = connnectDB()
 # createTable(con, "300015")
 # createTable(con, "601001")
@@ -130,10 +126,14 @@ heads = ("000", "002", "300", "600", "601", "603")
 for head in heads:
     for i in range(0, 1000):
         code = "{}{}".format(head, str(i).zfill(3))
-        print("handle:{}".format(code))
-        err = createTable(con, code)
+
+        err = createTable(con, code, "s")
         if err != None:
             print(err)
+            
+createTable(con, "000001", "z")
+createTable(con, "399001", "z")
+createTable(con, "399006", "z")
 
 print("over! {}".format(time.strftime("%Y/%m/%d %H:%M:%S")))
 sys.exit()

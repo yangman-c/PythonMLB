@@ -44,10 +44,22 @@ def readDB(id):
 def initDatasets(allData, lastDay):
     XArr = []
     YArr = []
+    lastData = allData[-1]
+    n = len(lastData)
     for i in range(len(allData) - lastDay + 1):
         # 将前lastDay的数据拼接起来，作为一条数据模型
         data = allData[i:i+lastDay]
-        XArr.append([n for x in data for n in x])
+        xData = [n for x in data for n in x]
+        # 将第3~8位置的数值进行处理
+        for j in range(lastDay):
+            xData[n * j + 3] = (xData[n * j + 3] / lastData[3] - 1) * 100
+            xData[n * j + 4] = (xData[n * j + 4] / lastData[3] - 1) * 100
+            xData[n * j + 5] = (xData[n * j + 5] / lastData[3] - 1) * 100
+            xData[n * j + 6] = (xData[n * j + 6] / lastData[3] - 1) * 100
+            xData[n * j + 7] = xData[n * j + 7] / 1000
+            xData[n * j + 8] = xData[n * j + 8] / 1000000
+
+        XArr.append(xData)
         # 预测第forwardDay天的y
         # 目标数据采样start,end,max,min
         YArr.append([allData[i + lastDay - 1][x] for x in [3, 4, 5, 6]])
@@ -121,7 +133,7 @@ def predictByCode(XArr, YArr, algorithem, forwardDay, testScore):
 
 
 def main(code):
-    testScore = False
+    testScore = True
     allData = readDB(code)
     lastDay = 60
     forwardDay = 3
@@ -146,11 +158,11 @@ def main(code):
     print("AVERAGE:")
     print(allP)
 
-
-
 if len(sys.argv) > 1:
     print("start! {}".format(time.strftime("%Y/%m/%d %H:%M:%S")))
     main(sys.argv[1])
     print("over! {}".format(time.strftime("%Y/%m/%d %H:%M:%S")))
+
+# main(300015)
 
 sys.exit()
