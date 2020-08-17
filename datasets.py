@@ -24,63 +24,27 @@ def insertData(con:pymysql.connect, kLineData:list, table: object)->bool:
     try:
         con.cursor().execute("insert into {} (date,start,end,max,min,volume,quota,amplitude,roc, voc,tor) value({},{},{},{},{},{},{},{},{},{},{});".format(table, dateStr, kLineData[1], kLineData[2], kLineData[3], kLineData[4], kLineData[5], kLineData[6],kLineData[7],kLineData[8],kLineData[9],kLineData[10]))
         return True
-    except Exception:
+    except Exception as err:
         return False
 
-def initTable(con: pymysql.connect, datas: list, code: str, valueType:str):
-    if len(datas[0][0]) != 10:
-        return
-    table = "{}_{}".format(valueType, code)
-    isNew = False
-    try:
-        con.cursor().execute('''create table {} (
-                date date primary key comment 'date',
-                start float comment 'start',
-                end float comment 'end',
-                max float comment 'max',
-                min float comment 'min',
-                volume int comment 'volume',
-                quota float comment 'quota',
-                amplitude float comment 'amplitude',
-                roc float comment 'range of change',
-                voc float comment 'value of change',
-                tor float comment 'turnover rate'
-            )'''.format(table))
-        isNew = True
-    except Exception:
-        isNew = False
-    if isNew:
-        n = 0
-        for kLineData in datas:
-            if insertData(con, kLineData, table):
-                n = n + 1
-        print("insert {} row".format(n))
-        con.commit()
-    else:
-        if insertData(con, datas[len(datas) - 1], table):
-            print("insert last row")
-            con.commit()
-        else:
-            print("insert 0")
+def getKLineDayUrl(prev, id, begin, t)->str:
+    return "http://push2his.eastmoney.com/api/qt/stock/kline/get?cb=jQuery1124009517967901227564_1597003341751&fields1=f1,f2,f3,f4,f5,f6&fields2=f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid={}.{}&beg={}&end=20500000&_={}".format(prev, id, begin, t)
 
-def getKLineDayUrl(prev, id, t)->str:
-    return "http://push2his.eastmoney.com/api/qt/stock/kline/get?cb=jQuery1124009517967901227564_1597003341751&fields1=f1,f2,f3,f4,f5,f6&fields2=f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid={}.{}&beg=0&end=20500000&_={}".format(prev, id, t)
-
-def getData(code, valueType)->str:
+def getData(code, valueType, begin)->str:
     t = int(time.time() * 1000)
     codeHead = code[:1]
     url = ""
     if code == "000001" and valueType == "z":
         if valueType == "z":
-            url = getKLineDayUrl(1, code, t)
+            url = getKLineDayUrl(1, code, begin, t)
         else:
-            url = getKLineDayUrl(0, code, t)
+            url = getKLineDayUrl(0, code, begin, t)
     elif codeHead == "6":
-        url = getKLineDayUrl(1, code, t)
+        url = getKLineDayUrl(1, code, begin, t)
     elif codeHead == "0":
-        url = getKLineDayUrl(0, code, t)
+        url = getKLineDayUrl(0, code, begin, t)
     elif codeHead == "3":
-        url = getKLineDayUrl(0, code, t)
+        url = getKLineDayUrl(0, code, begin, t)
     else:
         url = url
     req = Request(url)
@@ -94,25 +58,70 @@ def getData(code, valueType)->str:
     # print(data)
     return str(data), None
 
-def createTable(con, code, valueType):
-    print("handle:{}".format(code))       
-    data, err = getData(code, valueType)
+def createTable(con:pymysql.connect, code:str, valueType:str):
+    print("handle:{}".format(code))
+    sor = con.cursor()
+    tableName = "{}_{}".format(valueType, code)
+    isNew = False
+    # check table is exist
+    try:
+        sor.execute('''select *from {} order by date desc limit 1;'''.format(tableName))
+    except Exception:
+        isNew = True
+
+    # create begin param
+    begin = "0"
+    if not isNew:
+        data = sor.fetchall()
+        # 没数据，从头取
+        # 有数据，就从最后一条向后取
+        if len(data) > 0:
+            d = data[0][0]
+            begin = "{}{}{}".format(d.year, str(d.month).zfill(2), str(d.day).zfill(2))
+
+    # get origin data
+    resp, err = getData(code, valueType, begin)
     if err != None:
         return err
+
+    # calculate str kline begin index
     klinesIndex = 0
     try:
-        klinesIndex = data.index("klines")
+        klinesIndex = resp.index("klines")
     except Exception:
         print("no data.code:{}".format(code))
         return
+
+    # if table is not exit, and this code has kline data, then create table
+    if isNew:
+        # create new table
+        sor.execute('''create table {} (
+                date date primary key comment 'date',
+                start float comment 'start',
+                end float comment 'end',
+                max float comment 'max',
+                min float comment 'min',
+                volume int comment 'volume',
+                quota float comment 'quota',
+                amplitude float comment 'amplitude',
+                roc float comment 'range of change',
+                voc float comment 'value of change',
+                tor float comment 'turnover rate'
+            )'''.format(tableName))
     # print(klinesIndex)
-    data = data[klinesIndex + 10:-8]
-    # print(data)
-    klineDatas = data.split("\",\"")
-    for i in range(0, len(klineDatas)):
+    # cut origin string for klinedata string
+    resp = resp[klinesIndex + 10:-8]
+    # print(resp)
+    klineDatas = resp.split("\",\"")
+    for i in range(len(klineDatas)):
         info = klineDatas[i]
         klineDatas[i] = info.split(",")
-    initTable(con, klineDatas, code, valueType)
+    n = 0
+    for kLineData in klineDatas:
+        if insertData(con, kLineData, tableName):
+            n = n + 1
+    print("insert {} row".format(n))
+    con.commit()
 
 print("start! {}".format(time.strftime("%Y/%m/%d %H:%M:%S")))
 
@@ -134,6 +143,8 @@ for head in heads:
 createTable(con, "000001", "z")
 createTable(con, "399001", "z")
 createTable(con, "399006", "z")
+
+con.close()
 
 print("over! {}".format(time.strftime("%Y/%m/%d %H:%M:%S")))
 sys.exit()
