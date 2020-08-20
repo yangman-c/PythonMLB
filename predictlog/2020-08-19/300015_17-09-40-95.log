@@ -1,0 +1,26 @@
+start! 2020/08/19 17:09:55
+algorithem:LinearRegression() pred:[45.22, 46.07, 46.65, 44.93]
+algorithem:LinearRegression() pred:[45.63, 45.35, 46.37, 44.54]
+algorithem:LinearRegression() pred:[43.74, 45.45, 44.93, 44.54]
+
+algorithem:LinearRegression(normalize=True) pred:[45.17, 46.06, 46.58, 44.85]
+algorithem:LinearRegression(normalize=True) pred:[45.51, 45.11, 46.17, 44.36]
+algorithem:LinearRegression(normalize=True) pred:[43.77, 45.52, 44.99, 44.59]
+
+algorithem:Ridge() pred:[45.17, 46.19, 46.7, 45.04]
+algorithem:Ridge() pred:[45.7, 45.77, 46.56, 44.8]
+algorithem:Ridge() pred:[44.45, 45.9, 45.49, 44.99]
+
+algorithem:Ridge(normalize=True) pred:[45.78, 45.83, 46.64, 45.17]
+algorithem:Ridge(normalize=True) pred:[46.13, 46.53, 47.11, 45.57]
+algorithem:Ridge(normalize=True) pred:[46.02, 46.21, 46.85, 45.33]
+
+algorithem:Lasso() pred:[44.07, 44.87, 45.25, 44.05]
+algorithem:Lasso() pred:[44.58, 44.86, 45.57, 43.88]
+algorithem:Lasso() pred:[43.92, 44.9, 45.13, 43.76]
+
+algorithem:Lasso(normalize=True) pred:[9.16, 9.19, 9.35, 9.0]
+algorithem:Lasso(normalize=True) pred:[9.16, 9.19, 9.35, 9.01]
+algorithem:Lasso(normalize=True) pred:[9.36, 9.39, 9.55, 9.2]
+
+
