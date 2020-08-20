@@ -5,9 +5,10 @@ import pymysql
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import  train_test_split
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LinearRegression, Ridge, Lasso
 from sklearn.neural_network import MLPRegressor
 from sklearn.tree import DecisionTreeRegressor
+
 
 
 def connectDB()->pymysql.connect:
@@ -37,12 +38,10 @@ def readZS(con:pymysql.connect):
     except Exception as err:
         print("select err:{}".format(err))
     maxLen = 0
-    maxLenList = z_000001
     for data in [z_000001, z_399001, z_399006]:
         length = len(data)
         if length > maxLen:
             maxLen = length
-            maxLenList = data
         for i in range(length):
             elem = list(data[i])
             d = elem[0]
@@ -110,67 +109,25 @@ def initDatasets(allData, dpAllData, lastDay):
         YArr.append([allData[i + lastDay - 1][x] for x in [3, 4, 5, 6]])
     return XArr, YArr
 
-def learn1(X_train, X_test, y_train, y_test,testScore)->LinearRegression:
-    liner = LinearRegression()
-    liner.fit(X_train, y_train)
-    if testScore:
-        trainScore = liner.score(X_train, y_train)
-        testScore = liner.score(X_test, y_test)
-        print("LinearRegression train score:{} test score:{}".format(trainScore, testScore))
-    return liner
-
-def learn2(X_train, X_test, y_train, y_test,testScore)->RandomForestRegressor:
-    forest = RandomForestRegressor(n_estimators=20, random_state=2)
-    forest.fit(X_train, y_train)
-    if testScore:
-        trainScore = forest.score(X_train, y_train)
-        testScore = forest.score(X_test, y_test)
-        print("RandomForestRegressor train score:{} test score:{}".format(trainScore, testScore))
-    return forest
-
-def learn3(X_train, X_test, y_train, y_test,testScore)->DecisionTreeRegressor:
-    tree = DecisionTreeRegressor(max_depth=4, random_state=0)
-    tree.fit(X_train, y_train)
-    if testScore:
-        trainScore = tree.score(X_train, y_train)
-        testScore = tree.score(X_test, y_test)
-        print("DecisionTreeRegressor train score:{} test score:{}".format(trainScore, testScore))
-    return tree
-
-def learn4(X_train, X_test, y_train, y_test,testScore)->MLPRegressor:
-    mlp = MLPRegressor(solver="lbfgs", random_state=0)
-    mlp.fit(X_train, y_train)
-    if testScore:
-        trainScore = mlp.score(X_train, y_train)
-        testScore = mlp.score(X_test, y_test)
-        print("DecisionTreeRegressor train score:{} test score:{}".format(trainScore, testScore))
-    return mlp
-
 # 按照向量方式学习
 def predict2(xp, xa, ya, algorithem, testScore):
-    liner = None
     X_train, X_test, y_train, y_test = train_test_split(xa, ya, random_state=42)
-    if algorithem == 1:
-        liner = learn1(X_train, X_test, y_train, y_test, testScore)
-    elif algorithem == 2:
-        liner = learn2(X_train, X_test, y_train, y_test, testScore)
-    elif algorithem == 3:
-        liner = learn3(X_train, X_test, y_train, y_test, testScore)
-    return liner.predict(xp)
+    algorithem.fit(X_train, y_train)
+    if testScore:
+        trainScore = algorithem.score(X_train, y_train)
+        testScore = algorithem.score(X_test, y_test)
+        print("{} train score:{} test score:{}".format(type(algorithem), trainScore, testScore))
+    return algorithem.predict(xp)
 
 # 单个数值分开学习，目前看起来分开学习要强于一起学习
 def predict(i, xp, xa, ya, algorithem, testScore):
-    liner = None
     X_train, X_test, y_train, y_test = train_test_split(xa, ya[:, i], random_state=42)
-    if algorithem == 1:
-        liner = learn1(X_train, X_test, y_train, y_test, testScore)
-    elif algorithem == 2:
-        liner = learn2(X_train, X_test, y_train, y_test, testScore)
-    elif algorithem == 3:
-        liner = learn3(X_train, X_test, y_train, y_test, testScore)
-    elif algorithem == 4:
-        liner = learn4(X_train, X_test, y_train, y_test, testScore)
-    return liner.predict(xp)
+    algorithem.fit(X_train, y_train)
+    if testScore:
+        trainScore = algorithem.score(X_train, y_train)
+        testScore = algorithem.score(X_test, y_test)
+        print("{} train score:{} test score:{}".format(type(algorithem), trainScore, testScore))
+    return algorithem.predict(xp)
 
 # 测试数据使用的5天前的XArr，来预测最近五天的数据，以便和真实数据：最近五天的YArr对比。
 # 但考虑到该数据实际上学习过，所以可能出现过拟合的情况。
@@ -189,35 +146,33 @@ def predictByCode(XArr, YArr, algorithem, forwardDay, testScore):
 
 def main(code):
     code = str(code)
-    testScore = False
+    testScore = True
     con = connectDB()
     readZS(con)
     allData, dpAllData = readDB(con, code)
     lastDay = 30
     forwardDay = 3
     XArr, YArr = initDatasets(allData, dpAllData, lastDay)
-    allP = [[],[],[]]
+    algorithems = (LinearRegression(), LinearRegression(normalize=True), Ridge(), Ridge(normalize=True), Lasso(), Lasso(normalize=True))
+    numAlgorithem = len(algorithems)
+    allP = []
     try:
-        for i in range(forwardDay):
-            allP[0].append(predictByCode(XArr, YArr, 1, i + 1, testScore))
-        print()
-        for i in range(forwardDay):
-            allP[1].append(predictByCode(XArr, YArr, 2, i + 1, testScore))
-        print()
-        for i in range(forwardDay):
-            allP[2].append(predictByCode(XArr, YArr, 3, i + 1, testScore))
-        print()
-        # for i in range(forwardDay):
-        #     allP[3].append(predictByCode(XArr, YArr, 4, i + 1, testScore))
-        print()
+        for algo in algorithems:
+            arr = []
+            allP.append(arr)
+            for i in range(forwardDay):
+                arr.append(predictByCode(XArr, YArr, algo, i + 1, testScore))
+            print()
     except Exception as err:
         print(err)
+    # 把allP(n组预测)对位相加再除以行数(同列求均值)，且保留两位小数
     allP = np.array(allP)
-    # 把allP(三组预测)对位相加再除以行数(同列求均值)，且保留两位小数
-    allP = allP[0] + allP[1] + allP[2]
-    allP = np.round(allP / len(allP), 2)
+    aver = allP[0]
+    for n in range(1, len(allP)):
+        aver = aver + allP[n]
+    aver = np.round(aver / numAlgorithem, 2)
     print("AVERAGE:")
-    print(allP)
+    print(aver)
 
 if len(sys.argv) > 1:
     print("start! {}".format(time.strftime("%Y/%m/%d %H:%M:%S")))
