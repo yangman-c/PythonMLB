@@ -3,6 +3,7 @@ import time
 
 import numpy as np
 import pymysql
+import rankingxls
 
 z_000001 = None
 z_399001 = None
@@ -96,6 +97,7 @@ def makeRanking(n, con):
 def main():
     print("start! {}".format(time.strftime("%Y/%m/%d %H:%M:%S")))
     con = connectDB()
+    xlsx = rankingxls.RankingXls()
     makeRanking(5, con)
     makeRanking(10, con)
     makeRanking(15, con)

@@ -1,24 +1,14 @@
 import os
 import sys
+import openpyxl
+from openpyxl.worksheet import worksheet
 
-for key in os.environ.keys():
-    print(key)
-
-class A:
-    def __init__(self):
-        self.p = 1
-        pass
-
-class B(A):
-    pass
-
-class C:
-    pass
-
-def foo(a:A, b:A):
-    if a == None:
-        return ""
-    else:
-        return A()
+mywb = openpyxl.Workbook()
+mysheet = mywb.active
+mysheet['F6'] = 500
+mysheet['F7'] = 800
+mysheet['D3'] = '=SUM(F6:F7)'
+mywb.create_sheet("testsheet")
+mywb.save('Applyingformula.xlsx')
 
 sys.exit()
