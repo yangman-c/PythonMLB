@@ -1,7 +1,11 @@
-a = [[1,4,7],2,3,34,5]
+numOfCode = dict({"a":1,"b":2})
 
-print(a[:-1])
+for (k, v) in numOfCode.items():
+    print("k:{} v:{}".format(k, v))
 
-b = [n for n in a[0]] + a[1:]
-
-print(b[-len(a):-1])
+items = list(numOfCode.items())
+print(items)
+items.sort(key=lambda x:x[1], reverse=True)
+print(items)
+for item in items:
+    print("k:{} v:{}".format(item[0], item[1]))

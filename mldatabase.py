@@ -82,7 +82,7 @@ def readDB(con:pymysql.connect, id):
         allData[i] = data
     cursor.close()
     con.close()
-    return allData, getZSByCode(id)[-length:]
+    return allData[:-1], getZSByCode(id)[-length:-1]
 
 def initDatasets(allData, dpAllData, lastDay):
     XArr = []
@@ -95,13 +95,18 @@ def initDatasets(allData, dpAllData, lastDay):
         dpData = dpAllData[i:i+lastDay]
         xData = [n for x in data for n in x] + [n for x in dpData for n in x]
         # 将第3~8位置的数值进行处理
-        # for j in range(lastDay):
-        #     xData[n * j + 3] = (xData[n * j + 3] / lastData[3] - 1) * 100
-        #     xData[n * j + 4] = (xData[n * j + 4] / lastData[3] - 1) * 100
-        #     xData[n * j + 5] = (xData[n * j + 5] / lastData[3] - 1) * 100
-        #     xData[n * j + 6] = (xData[n * j + 6] / lastData[3] - 1) * 100
-        #     xData[n * j + 7] = xData[n * j + 7] / 1000
-        #     xData[n * j + 8] = xData[n * j + 8] / 1000000
+        for j in range(lastDay):
+            # v3 = xData[n * j + 3]
+            # v4 = xData[n * j + 4]
+            # v5 = xData[n * j + 5]
+            # v6 = xData[n * j + 6]
+            # v11 = xData[n * j + 11]
+            # xData[n * j + 3] = v3 - v4 + v11
+            # xData[n * j + 4] = v11
+            # xData[n * j + 5] = v5 - v4 + v11
+            # xData[n * j + 6] = v6 - v4 + v11
+            xData[n * j + 7] = xData[n * j + 7] / 1000000000
+            xData[n * j + 8] = xData[n * j + 8] / 1000000000000
 
         XArr.append(xData)
         # 预测第forwardDay天的y
@@ -137,8 +142,8 @@ def predictByCode(XArr, YArr, algorithem, forwardDay, testScore):
     xa = XArr[:len(XArr) - forwardDay]
     ya = np.array(YArr[forwardDay:])
     # print("forwardDay:{} YArr:{}".format(forwardDay, YArr[forwardDay-6]))
-    p = [predict(i, [XArr[-1]], xa, ya, algorithem, testScore) for i in range(len(YArr[0]))]
-    # p = predict2([XArr[-1]], xa, ya, algorithem, testScore)
+    # p = [predict(i, [XArr[-1]], xa, ya, algorithem, testScore) for i in range(len(YArr[0]))]
+    p = predict2([XArr[-1]], xa, ya, algorithem, testScore)
     p = [round(x, 2) for n in p for x in n]
     print("algorithem:{} pred:{}".format(algorithem, p))
     return p
@@ -153,7 +158,8 @@ def main(code):
     lastDay = 30
     forwardDay = 3
     XArr, YArr = initDatasets(allData, dpAllData, lastDay)
-    algorithems = (LinearRegression(), LinearRegression(normalize=True), Ridge(), Ridge(normalize=True), Lasso(), Lasso(normalize=True))
+    # algorithems = (MLPRegressor(alpha=1, hidden_layer_sizes=[3,], max_iter=1000), MLPRegressor(solver="lbfgs", alpha=1, hidden_layer_sizes=[3,], max_iter=1000))
+    algorithems = (LinearRegression(), LinearRegression(normalize=True), Ridge(), Ridge(normalize=True), Lasso())
     numAlgorithem = len(algorithems)
     allP = []
     try:
