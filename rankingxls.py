@@ -1,46 +1,58 @@
+import math
+
 import openpyxl
 
 class RankingXls(object):
     def __init__(self):
         self.xls = openpyxl.Workbook()
-        self.maxMainSheetRow = 0
+        self.maxMainSheetRow = 1
         self.code2RowDic = dict()
-        self.maxMainSheetColumn = 0
-        self.n2ColumnDic = dict()
         self.xls.active.title = "avrange of n"
         self.mainSheet = self.xls.active
         self.xls.active["A1"] = "Code"
         return
 
-    def getSheet(self, n):
-        sheetName = "{}日".format(n)
-        if sheetName in self.xls:
-            return self.xls[sheetName]
-        else:
-            return self.xls.create_sheet("{}日".format(n))
-
-    def setCodeN(self, code, n):
+    def setCodeN(self, code, i, value):
         if code in self.code2RowDic:
             pass
         else:
             self.maxMainSheetRow = self.maxMainSheetRow + 1
             self.code2RowDic[code] = self.maxMainSheetRow
-            self.mainSheet['A' + self.maxMainSheetRow] = code
+            self.mainSheet['A{}'.format(self.maxMainSheetRow)] = code
+        colName = self.getname(i)
+        self.mainSheet["{}{}".format(colName, self.code2RowDic[code])] = value
+        return
 
-        if n in self.n2ColumnDic:
-            pass
+    def getAvrangeSheet(self, n):
+        title = "{}日".format(n)
+        if title in self.xls:
+            return self.xls[title]
         else:
-            self.maxMainSheetColumn = self.maxMainSheetColumn + 1
-            self.n2ColumnDic[n] = self.maxMainSheetColumn
-            self.mainSheet['B' + 1] = n + "日"
+            sheet = self.xls.create_sheet(title)
+            sheet.append(("Code", "Varm", "Roc", "Mean", "Tor"))
+            return sheet
 
-        r = self.code2RowDic[code]
-        l = self.n2ColumnDic[n]
-        return
-
-    def createColumn(self):
-        return
+    def getname(self, i):
+        colName = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        l = []
+        length = len(colName)
+        while True:
+            m = i % length
+            i = math.floor(i / length)
+            if m == 0:
+                m = length
+                i = i - 1
+            l.append(m)
+            if i == 0:
+                break
+        name = ""
+        for c in l:
+            name = colName[c-1] + name
+        return name
 
     def save(self):
-        self.xls.save("Ranking.xlsx")
+        try:
+            self.xls.save("Ranking.xlsx")
+        except Exception as err:
+            print("save err:{}".format(err))
         return

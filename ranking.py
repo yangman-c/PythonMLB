@@ -64,8 +64,13 @@ def getZSByCode(code):
     else:
         return z_000001
 
-def makeRanking(n, con):
+def makeRanking(i, con, xlsx:rankingxls.RankingXls):
+    n = i * 5
     print("\n==================== start n={} ====================".format(n))
+    sheet = xlsx.getAvrangeSheet(n)
+    colName = xlsx.getname(i+1)
+    xlsx.mainSheet["{}{}".format(colName, 1)] = "{}日".format(n)
+
     global z_000001, z_399001, z_399006
     err, z_000001 = readDB(con, "z_000001", n)
     err, z_399001 = readDB(con, "z_399001", n)
@@ -77,20 +82,23 @@ def makeRanking(n, con):
     allData = list([])
     heads = ("000", "002", "300", "600", "601", "603")
     for head in heads:
-        for i in range(1000):
-            code = "{}{}".format(head, str(i).zfill(3))
+        for j in range(1000):
+            code = "{}{}".format(head, str(j).zfill(3))
             err, info = readDB(con, "s_{}".format(code), n)
             if err == None and info != None and info.roc >= getZSByCode(info.code).roc:
+                xlsx.setCodeN(info.code, i + 1, 1)
                 if info.code in numOfCode:
                     numOfCode[info.code] = numOfCode[info.code] + 1
                 else:
                     numOfCode[info.code] = 1
                 allData.append(info)
 
+
     # allData = filter(lambda TestInfo:TestInfo.roc > getZSByCode(TestInfo.code).roc, allData)
     rocsort = sorted(allData, key=lambda TestInfo:TestInfo.roc, reverse=True)
     for info in rocsort:
         print(info)
+        sheet.append((info.code, info.varm, info.roc, info.mean, info.tor))
     print("==================== end n:{} total:{} ====================\n".format(n, len(rocsort)))
     return rocsort
 
@@ -98,21 +106,15 @@ def main():
     print("start! {}".format(time.strftime("%Y/%m/%d %H:%M:%S")))
     con = connectDB()
     xlsx = rankingxls.RankingXls()
-    makeRanking(5, con)
-    makeRanking(10, con)
-    makeRanking(15, con)
-    makeRanking(20, con)
-    makeRanking(25, con)
-    makeRanking(30, con)
-    makeRanking(35, con)
-    makeRanking(40, con)
-    makeRanking(45, con)
-    makeRanking(50, con)
-    makeRanking(55, con)
-    makeRanking(60, con)
-    makeRanking(100, con)
-    makeRanking(200, con)
-    makeRanking(300, con)
+    for i in range(60):
+        makeRanking(i + 1, con, xlsx)
+    numCol = len(list(xlsx.mainSheet.columns))
+    numRow = len(list(xlsx.mainSheet.rows))
+    cName = xlsx.getname(numCol + 1)
+    xlsx.mainSheet["{}{}".format(cName, 1)] = "Total"
+    for i in range(2, numRow + 1):
+        xlsx.mainSheet["{}{}".format(cName, i)] = "=SUM(B{}:{}{})".format(i, xlsx.getname(numCol), i)
+    xlsx.save()
 
     items = list(numOfCode.items())
     items.sort(key=lambda x:x[1], reverse=True)
