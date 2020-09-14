@@ -50,9 +50,9 @@ class RankingXls(object):
             name = colName[c-1] + name
         return name
 
-    def save(self):
+    def save(self, path):
         try:
-            self.xls.save("Ranking.xlsx")
+            self.xls.save(path)
         except Exception as err:
             print("save err:{}".format(err))
         return

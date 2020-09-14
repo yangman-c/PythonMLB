@@ -1,0 +1,38 @@
+start! 2020/08/25 21:58:45
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-1640649953730128.5 test score:-3663687395089120.5
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-83449483202549.83 test score:-1455461865256470.0
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-2021003257101692.0 test score:-2205286934833213.0
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-269861432703119.56 test score:-1085586470791351.6
+algorithem:MLPRegressor(alpha=0.01) pred:[801383615.1, -43218709.22, 1721619834.62, 210205029.26]
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-109190669808592.36 test score:-740853272106895.4
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-175700143707475.25 test score:-2354412732328879.5
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-70923603378303.4 test score:-1206765762472762.8
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-126736167399115.92 test score:-518288695521703.06
+algorithem:MLPRegressor(alpha=0.01) pred:[-184389276.63, -240818531.37, 78829331.06, -156710693.12]
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-55832901556674.11 test score:-1748592101398096.2
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-135763164076194.7 test score:-995058722429608.4
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-225990661686400.7 test score:-1080808251008076.9
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-36992345825944.234 test score:-237028079883504.0
+algorithem:MLPRegressor(alpha=0.01) pred:[-40824651.47, 144173824.67, 124596715.3, -74379747.39]
+
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-3213329566607.951 test score:-511974061814775.6
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-4105052991197.27 test score:-1031558038002480.4
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-1511609426372.814 test score:-2235040100047350.0
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-4715440811279.609 test score:-1138440670992085.5
+algorithem:MLPRegressor(alpha=0.01, solver='lbfgs') pred:[-534867.91, 6313908.79, 2848511.37, -18901753.21]
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-4194643614843.6797 test score:-879217771909610.1
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-3231776433010.4873 test score:-542639434164756.1
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-1787674111294.1475 test score:-1685986803881503.8
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-1373413460568.7686 test score:-511520731773620.06
+algorithem:MLPRegressor(alpha=0.01, solver='lbfgs') pred:[3009028.32, -665003.97, -1172231.69, 3186689.83]
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-5527282091209.125 test score:-386549796783931.75
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-11075816675435.613 test score:-1321239941209304.2
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-8723745539342.713 test score:-523901662578148.6
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-2677961811050.526 test score:-852159055490053.5
+algorithem:MLPRegressor(alpha=0.01, solver='lbfgs') pred:[22369960.36, -11595274.35, 6182821.46, -3472675.9]
+
+AVERAGE:
+[[ 4.00424374e+08 -1.84524002e+07  8.62234173e+08  9.56516380e+07]
+ [-9.06901242e+07 -1.20741768e+08  3.88285497e+07 -7.67620016e+07]
+ [-9.22734556e+06  6.62892752e+07  6.53897684e+07 -3.89262116e+07]]
+over! 2020/08/25 22:01:41

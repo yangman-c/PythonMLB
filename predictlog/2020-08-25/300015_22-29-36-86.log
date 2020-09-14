@@ -1,0 +1,38 @@
+start! 2020/08/25 22:29:37
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-17869315811295.555 test score:-674579084349510.1
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-54911509509961.266 test score:-586503905273776.0
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-30537615652146.383 test score:-301505887517248.44
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-876845604130.7395 test score:-115089594930583.28
+algorithem:MLPRegressor(alpha=1, hidden_layer_sizes=[20], max_iter=1000) pred:[0.05, 141290416.06, 165523637.7, 1823831.6]
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-583487829297097.6 test score:-9611257216661112.0
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-65515785906136.78 test score:-41577977593579.81
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-176004647892863.8 test score:-220968907224665.94
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-8815400333407.744 test score:-1919834154565221.8
+algorithem:MLPRegressor(alpha=1, hidden_layer_sizes=[20], max_iter=1000) pred:[-649419809.57, 23952966.85, -47147645.09, 48623394.72]
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-6138230507727.595 test score:-160730187780076.8
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-12430678245461.914 test score:-374724322881737.2
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-9410373459155.033 test score:-4687099216673151.0
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-110253199411226.02 test score:-1832774287171741.8
+algorithem:MLPRegressor(alpha=1, hidden_layer_sizes=[20], max_iter=1000) pred:[-52469700.03, -8583302.27, -90294404.37, 65888775.2]
+
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-1452490895.2693884 test score:-547118421916090.1
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-12707488572.34398 test score:-16372942498596.443
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-10167074661.05559 test score:-66871618178428.84
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-8825281604.215015 test score:-8013549742.483242
+algorithem:MLPRegressor(alpha=1, hidden_layer_sizes=[20], max_iter=1000, solver='lbfgs') pred:[204441.58, 672880.11, 36299.23, -1770612.67]
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-488238348.5645224 test score:-18856308249069.86
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-12416857663.464226 test score:-408129295036802.56
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-7947180523.106344 test score:-1723544996166497.5
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-189824279321.5275 test score:-246286275654490.1
+algorithem:MLPRegressor(alpha=1, hidden_layer_sizes=[20], max_iter=1000, solver='lbfgs') pred:[42232.99, -631502.32, 1022805.93, -376506.65]
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-458557292.3923056 test score:-1528220252701797.8
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:0.3272738839157603 test score:0.4120113404203112
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-23456398833.832245 test score:-257608025048312.72
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-138436876953.21658 test score:-400176290451543.44
+algorithem:MLPRegressor(alpha=1, hidden_layer_sizes=[20], max_iter=1000, solver='lbfgs') pred:[-159723.64, 22.84, -131871.96, -2392815.78]
+
+AVERAGE:
+[[ 1.02220810e+05  7.09816481e+07  8.27799685e+07  2.66094700e+04]
+ [-3.24688788e+08  1.16607323e+07 -2.30624196e+07  2.41234440e+07]
+ [-2.63147118e+07 -4.29163972e+06 -4.52131382e+07  3.17479797e+07]]
+over! 2020/08/25 22:32:12

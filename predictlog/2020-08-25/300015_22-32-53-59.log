@@ -1,0 +1,38 @@
+start! 2020/08/25 22:32:54
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-67797753015566.07 test score:-1270727252063888.0
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-24257756779618.0 test score:-689722698242784.1
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-36667710572291.625 test score:-105925781961752.69
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-55961682146251.016 test score:-1127261687502790.0
+algorithem:MLPRegressor(alpha=1, hidden_layer_sizes=[20], max_iter=10000) pred:[-40384686.33, -28398531.38, -21036643.83, 127562136.32]
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-15822024170808.777 test score:-1623001819699165.5
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-152102748024229.22 test score:-164232939379406.88
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-4669164580578.763 test score:-92040092936919.36
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-5305313828771.171 test score:-3099119355976442.0
+algorithem:MLPRegressor(alpha=1, hidden_layer_sizes=[20], max_iter=10000) pred:[-48021808.26, 109266396.87, 55393101.72, -50956038.07]
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-35390954572989.375 test score:-242148759374999.38
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-21809587893551.945 test score:-1286308418407531.0
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-124354179144761.77 test score:-64824754791840.99
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-32844286316837.188 test score:-790535913770973.1
+algorithem:MLPRegressor(alpha=1, hidden_layer_sizes=[20], max_iter=10000) pred:[-127289421.29, -52528926.1, 134317028.61, 69338274.06]
+
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-2865512293.6719127 test score:-1099779968896705.1
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-1183997760.2343056 test score:-3925232773483.222
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-209233536.23851445 test score:-217098564.9315657
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:0.2934901867661651 test score:0.40683882168715757
+algorithem:MLPRegressor(alpha=1, hidden_layer_sizes=[20], max_iter=10000, solver='lbfgs') pred:[-971163.77, -27848.68, 144509.31, 25.81]
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-5149615748.753568 test score:-809587195900408.0
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-461050879.94212353 test score:-997646875515905.2
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-710952727.6374931 test score:-935296746452284.0
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-5525252299.802885 test score:-9184711051863.348
+algorithem:MLPRegressor(alpha=1, hidden_layer_sizes=[20], max_iter=10000, solver='lbfgs') pred:[391584.2, -352174.49, -272121.84, -534400.66]
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-792140033.0490892 test score:-785384661.6959504
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-1943789787.9724514 test score:-4541547533424.047
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-748728827.9872507 test score:-555821740753556.8
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:0.22299229836727208 test score:-7780896006100.501
+algorithem:MLPRegressor(alpha=1, hidden_layer_sizes=[20], max_iter=10000, solver='lbfgs') pred:[330562.14, 710564.02, 279826.69, 22.03]
+
+AVERAGE:
+[[-20677925.05 -14213190.03 -10446067.26  63781081.06]
+ [-23815112.03  54457111.19  27560489.94 -25745219.36]
+ [-63479429.58 -25909181.04  67298427.65  34669148.04]]
+over! 2020/08/25 22:47:23

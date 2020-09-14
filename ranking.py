@@ -1,5 +1,6 @@
 import sys
 import time
+from datetime import date
 
 import numpy as np
 import pymysql
@@ -114,8 +115,7 @@ def main():
     xlsx.mainSheet["{}{}".format(cName, 1)] = "Total"
     for i in range(2, numRow + 1):
         xlsx.mainSheet["{}{}".format(cName, i)] = "=SUM(B{}:{}{})".format(i, xlsx.getname(numCol), i)
-    xlsx.save()
-
+    xlsx.save("ranking/Ranking_{}.xlsx".format(date.today()))
     items = list(numOfCode.items())
     items.sort(key=lambda x:x[1], reverse=True)
     for item in items:

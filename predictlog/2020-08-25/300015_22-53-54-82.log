@@ -1,0 +1,38 @@
+start! 2020/08/25 22:53:55
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-1.143654804250581 test score:-1.0903104267288732
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-147288630616.31268 test score:-0.7326070792743578
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-0.8996872040110651 test score:-23232276614273.855
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-0.6746857509126085 test score:-0.6764080606171077
+algorithem:MLPRegressor(alpha=1, hidden_layer_sizes=[3], max_iter=1000) pred:[-1.18, 0.84, -0.0, 1.17]
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-0.8962872622630103 test score:-0.9163390669075959
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-27545780875.971035 test score:-34558890106.66208
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-1284228769.3735101 test score:-323640035061711.94
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-0.9723575493501708 test score:-0.9977840190773641
+algorithem:MLPRegressor(alpha=1, hidden_layer_sizes=[3], max_iter=1000) pred:[-0.07, -1125086.21, 1.21, -0.47]
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-0.6756394592111374 test score:-0.6396185531164993
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-0.8394438653024292 test score:-0.7935386294567128
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-66.13494301904042 test score:-7807182373120.36
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-493527445288.2624 test score:-109666677660372.53
+algorithem:MLPRegressor(alpha=1, hidden_layer_sizes=[3], max_iter=1000) pred:[1.25, 0.31, 0.19, -18275465.13]
+
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-2.220446049250313e-16 test score:-0.008043717057913513
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-2.220446049250313e-16 test score:-0.00820858312547057
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:0.1762012758492144 test score:0.1595970868694203
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-0.6702356066363211 test score:-0.6724377696013084
+algorithem:MLPRegressor(alpha=1, hidden_layer_sizes=[3], max_iter=1000, solver='lbfgs') pred:[9.1, 9.13, 13.35, 1.2]
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:0.35311558293893597 test score:0.288299326897307
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-0.8865899227760152 test score:-0.9051782269628728
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:0.0 test score:-0.002937887476355483
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:0.0 test score:-0.0029719778502688143
+algorithem:MLPRegressor(alpha=1, hidden_layer_sizes=[3], max_iter=1000, solver='lbfgs') pred:[16.2, -0.02, 9.67, 9.31]
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:8.881784197001252e-15 test score:-0.0007192772906663425
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-2.220446049250313e-16 test score:-0.0007265919254884068
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:-1.1162592615006441 test score:-1.0460554976910887
+<class 'sklearn.neural_network._multilayer_perceptron.MLPRegressor'> train score:0.0 test score:-0.0007205522568800582
+algorithem:MLPRegressor(alpha=1, hidden_layer_sizes=[3], max_iter=1000, solver='lbfgs') pred:[9.28, 9.31, -1.05, 9.12]
+
+AVERAGE:
+[[ 3.9600000e+00  4.9900000e+00  6.6800000e+00  1.1800000e+00]
+ [ 8.0600000e+00 -5.6254312e+05  5.4400000e+00  4.4200000e+00]
+ [ 5.2600000e+00  4.8100000e+00 -4.3000000e-01 -9.1377280e+06]]
+over! 2020/08/25 22:55:07

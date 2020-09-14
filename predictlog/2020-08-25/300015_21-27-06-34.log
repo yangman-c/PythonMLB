@@ -1,0 +1,102 @@
+start! 2020/08/25 21:27:15
+<class 'sklearn.linear_model._base.LinearRegression'> train score:0.9903305416330002 test score:0.8310262672417958
+<class 'sklearn.linear_model._base.LinearRegression'> train score:0.9899399800738727 test score:0.6197541309111461
+<class 'sklearn.linear_model._base.LinearRegression'> train score:0.9903862216170445 test score:0.6898050586421407
+<class 'sklearn.linear_model._base.LinearRegression'> train score:0.9901028054642528 test score:0.8063460685509614
+algorithem:LinearRegression() pred:[43.06, 44.11, 44.76, 43.58]
+<class 'sklearn.linear_model._base.LinearRegression'> train score:0.9884760557706039 test score:0.7624886681674345
+<class 'sklearn.linear_model._base.LinearRegression'> train score:0.9885871412082854 test score:0.873477862698489
+<class 'sklearn.linear_model._base.LinearRegression'> train score:0.9888860585372375 test score:0.8549774560102517
+<class 'sklearn.linear_model._base.LinearRegression'> train score:0.9883493050072014 test score:0.8448695390123531
+algorithem:LinearRegression() pred:[43.89, 42.94, 44.46, 42.38]
+<class 'sklearn.linear_model._base.LinearRegression'> train score:0.9889603383266357 test score:-0.020539021103877175
+<class 'sklearn.linear_model._base.LinearRegression'> train score:0.9886720399844834 test score:0.26198641117072463
+<class 'sklearn.linear_model._base.LinearRegression'> train score:0.9890230619371394 test score:0.2474702189970187
+<class 'sklearn.linear_model._base.LinearRegression'> train score:0.9886070107175328 test score:0.23638710323301004
+algorithem:LinearRegression() pred:[40.25, 40.43, 40.55, 40.03]
+
+<class 'sklearn.linear_model._base.LinearRegression'> train score:0.9924506966808614 test score:-2.2658292524380627e+17
+<class 'sklearn.linear_model._base.LinearRegression'> train score:0.9918111528619533 test score:-1.806476122483559e+17
+<class 'sklearn.linear_model._base.LinearRegression'> train score:0.9922700619212899 test score:-1.7122107675439917e+17
+<class 'sklearn.linear_model._base.LinearRegression'> train score:0.9920403661715741 test score:-1.37628444390297e+17
+algorithem:LinearRegression(normalize=True) pred:[45.87, 46.53, 47.13, 45.98]
+<class 'sklearn.linear_model._base.LinearRegression'> train score:0.9919907259477948 test score:-1.3532375110158618e+18
+<class 'sklearn.linear_model._base.LinearRegression'> train score:0.9915817608780884 test score:-1.1694787809452178e+18
+<class 'sklearn.linear_model._base.LinearRegression'> train score:0.9920040959231616 test score:-1.0906917609620431e+18
+<class 'sklearn.linear_model._base.LinearRegression'> train score:0.9916374723492191 test score:-1.1584574345226655e+18
+algorithem:LinearRegression(normalize=True) pred:[43.76, 43.16, 44.16, 42.8]
+<class 'sklearn.linear_model._base.LinearRegression'> train score:0.9911277738758985 test score:-3.942356364002703e+17
+<class 'sklearn.linear_model._base.LinearRegression'> train score:0.9906682842490767 test score:-4.0425384450368986e+17
+<class 'sklearn.linear_model._base.LinearRegression'> train score:0.9910502864028363 test score:-1.9957384811863562e+17
+<class 'sklearn.linear_model._base.LinearRegression'> train score:0.99080865234784 test score:-4.263478551890819e+17
+algorithem:LinearRegression(normalize=True) pred:[43.02, 42.93, 43.17, 42.68]
+
+<class 'sklearn.linear_model._ridge.Ridge'> train score:0.9881105942438166 test score:0.9675315249142145
+<class 'sklearn.linear_model._ridge.Ridge'> train score:0.9875129944372929 test score:0.9677525722320547
+<class 'sklearn.linear_model._ridge.Ridge'> train score:0.9881190910952865 test score:0.9690457352171077
+<class 'sklearn.linear_model._ridge.Ridge'> train score:0.9876318604518995 test score:0.966667121199087
+algorithem:Ridge() pred:[44.4, 45.15, 45.75, 44.45]
+<class 'sklearn.linear_model._ridge.Ridge'> train score:0.9876951201133608 test score:0.9699748445475966
+<class 'sklearn.linear_model._ridge.Ridge'> train score:0.9871844968919163 test score:0.9683161449917986
+<class 'sklearn.linear_model._ridge.Ridge'> train score:0.987713079308458 test score:0.9697497468722286
+<class 'sklearn.linear_model._ridge.Ridge'> train score:0.9872417473890276 test score:0.9686048617349421
+algorithem:Ridge() pred:[43.47, 42.56, 43.89, 41.96]
+<class 'sklearn.linear_model._ridge.Ridge'> train score:0.9874553575276297 test score:0.9657715499204512
+<class 'sklearn.linear_model._ridge.Ridge'> train score:0.9870499234947424 test score:0.9644420448416
+<class 'sklearn.linear_model._ridge.Ridge'> train score:0.9874317947577989 test score:0.9661712870541588
+<class 'sklearn.linear_model._ridge.Ridge'> train score:0.9871450445860205 test score:0.9637778460471682
+algorithem:Ridge() pred:[41.88, 41.96, 42.2, 41.55]
+
+<class 'sklearn.linear_model._ridge.Ridge'> train score:0.9819277091797584 test score:0.9780636851929455
+<class 'sklearn.linear_model._ridge.Ridge'> train score:0.9807579008989599 test score:0.9780387584003318
+<class 'sklearn.linear_model._ridge.Ridge'> train score:0.9817040161532935 test score:0.9785744145638399
+<class 'sklearn.linear_model._ridge.Ridge'> train score:0.9811394694260162 test score:0.9778111080563403
+algorithem:Ridge(normalize=True) pred:[40.73, 40.7, 41.46, 40.04]
+<class 'sklearn.linear_model._ridge.Ridge'> train score:0.9804921832364815 test score:0.9775257495328233
+<class 'sklearn.linear_model._ridge.Ridge'> train score:0.979600449216788 test score:0.9769021832265544
+<class 'sklearn.linear_model._ridge.Ridge'> train score:0.9804735097645788 test score:0.9775531889339261
+<class 'sklearn.linear_model._ridge.Ridge'> train score:0.9797794761009371 test score:0.9770397175127377
+algorithem:Ridge(normalize=True) pred:[40.12, 40.25, 40.92, 39.39]
+<class 'sklearn.linear_model._ridge.Ridge'> train score:0.979829276615336 test score:0.9758677880112041
+<class 'sklearn.linear_model._ridge.Ridge'> train score:0.9788289305413358 test score:0.9763440260978954
+<class 'sklearn.linear_model._ridge.Ridge'> train score:0.9796825263148092 test score:0.9767251847234208
+<class 'sklearn.linear_model._ridge.Ridge'> train score:0.979119842731439 test score:0.9757455186955771
+algorithem:Ridge(normalize=True) pred:[40.33, 40.42, 40.95, 39.79]
+
+<class 'sklearn.linear_model._coordinate_descent.Lasso'> train score:0.838007105053111 test score:0.8137326580624012
+<class 'sklearn.linear_model._coordinate_descent.Lasso'> train score:0.8370589523840272 test score:0.8141984252705633
+<class 'sklearn.linear_model._coordinate_descent.Lasso'> train score:0.8375812638552446 test score:0.8142132493636504
+<class 'sklearn.linear_model._coordinate_descent.Lasso'> train score:0.8381483747799819 test score:0.8143497812241803
+algorithem:Lasso() pred:[31.38, 31.43, 32.01, 30.93]
+<class 'sklearn.linear_model._coordinate_descent.Lasso'> train score:0.8342711925129156 test score:0.8207775217292086
+<class 'sklearn.linear_model._coordinate_descent.Lasso'> train score:0.8336004302033904 test score:0.8199294563616139
+<class 'sklearn.linear_model._coordinate_descent.Lasso'> train score:0.8339642700679959 test score:0.8207409430893647
+<class 'sklearn.linear_model._coordinate_descent.Lasso'> train score:0.8343739087698253 test score:0.821265989342189
+algorithem:Lasso() pred:[30.32, 30.33, 30.8, 29.93]
+<class 'sklearn.linear_model._coordinate_descent.Lasso'> train score:0.8385073294150932 test score:0.8119558245084765
+<class 'sklearn.linear_model._coordinate_descent.Lasso'> train score:0.8377498923251083 test score:0.8136412180035278
+<class 'sklearn.linear_model._coordinate_descent.Lasso'> train score:0.8384801655338658 test score:0.8136579383664679
+<class 'sklearn.linear_model._coordinate_descent.Lasso'> train score:0.8380932867187256 test score:0.8136925799973873
+algorithem:Lasso() pred:[32.14, 32.36, 32.91, 31.68]
+
+<class 'sklearn.linear_model._coordinate_descent.Lasso'> train score:0.0 test score:-1.6561436791517892e-05
+<class 'sklearn.linear_model._coordinate_descent.Lasso'> train score:0.0 test score:-7.073024365977787e-06
+<class 'sklearn.linear_model._coordinate_descent.Lasso'> train score:0.0 test score:-1.0602046444541102e-05
+<class 'sklearn.linear_model._coordinate_descent.Lasso'> train score:0.0 test score:-1.7001487250478675e-05
+algorithem:Lasso(normalize=True) pred:[9.35, 9.38, 9.54, 9.19]
+<class 'sklearn.linear_model._coordinate_descent.Lasso'> train score:0.0 test score:-0.00832382131098286
+<class 'sklearn.linear_model._coordinate_descent.Lasso'> train score:0.0 test score:-0.008376199573858933
+<class 'sklearn.linear_model._coordinate_descent.Lasso'> train score:0.0 test score:-0.008293879029072526
+<class 'sklearn.linear_model._coordinate_descent.Lasso'> train score:0.0 test score:-0.008383055108470261
+algorithem:Lasso(normalize=True) pred:[9.11, 9.14, 9.3, 8.96]
+<class 'sklearn.linear_model._coordinate_descent.Lasso'> train score:0.0 test score:-0.0030218617357562483
+<class 'sklearn.linear_model._coordinate_descent.Lasso'> train score:0.0 test score:-0.0030395803417846423
+<class 'sklearn.linear_model._coordinate_descent.Lasso'> train score:0.0 test score:-0.0030017543390219448
+<class 'sklearn.linear_model._coordinate_descent.Lasso'> train score:0.0 test score:-0.0030302762274143635
+algorithem:Lasso(normalize=True) pred:[9.49, 9.52, 9.69, 9.33]
+
+AVERAGE:
+[[35.8  36.22 36.78 35.7 ]
+ [35.11 34.73 35.59 34.24]
+ [34.52 34.6  34.91 34.18]]
+over! 2020/08/25 21:28:14
