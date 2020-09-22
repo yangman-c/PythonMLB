@@ -6,4 +6,3 @@ call ranking.bat
 echo report.bat
 call report.bat
 echo end
-@pause
