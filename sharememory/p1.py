@@ -1,6 +1,6 @@
 from multiprocessing.shared_memory import SharedMemory
 import numpy as np
-
+import common.globalConfig
 def readData(name):
     try:
         shapeSm = SharedMemory(name + "_shape", False)
@@ -16,7 +16,7 @@ def readData(name):
     return None, arr
 
 allData = list([])
-heads = ("000", "002", "300", "600", "601", "603")
+heads = common.globalConfig.heads
 for head in heads:
     for i in range(1000):
         code = "{}{}".format(head, str(i).zfill(3))

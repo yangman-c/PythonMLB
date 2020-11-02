@@ -1,5 +1,6 @@
 import sys
 import time
+import common.globalConfig
 from datetime import date
 
 import numpy as np
@@ -81,7 +82,7 @@ def makeRanking(i, con, xlsx:rankingxls.RankingXls):
     print(z_399006)
 
     allData = list([])
-    heads = ("000", "002", "300", "600", "601", "603")
+    heads = common.globalConfig.heads
     for head in heads:
         for j in range(1000):
             code = "{}{}".format(head, str(j).zfill(3))

@@ -1,5 +1,5 @@
 import sys
-
+import common.globalConfig
 import numpy as np
 from multiprocessing.shared_memory import SharedMemory
 
@@ -80,7 +80,7 @@ def readDB(con:pymysql.connect, tableName):
 
 def main():
     con = connectDB()
-    heads = ("000", "002", "300", "600", "601", "603")
+    heads = common.globalConfig.heads
     for head in heads:
         for i in range(1000):
             code = "{}{}".format(head, str(i).zfill(3))

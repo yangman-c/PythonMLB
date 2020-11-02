@@ -3,6 +3,7 @@
 
 import sys
 import time
+import common.globalConfig
 from datetime import date
 from urllib.request import Request, urlopen
 
@@ -130,8 +131,8 @@ con = connnectDB()
 # createTable(con, "601001")
 # createTable(con, "002001")
 # createTable(con, "000300")
-heads = ("000", "002", "300", "600", "601", "603")
 
+heads = common.globalConfig.heads
 for head in heads:
     for i in range(0, 1000):
         code = "{}{}".format(head, str(i).zfill(3))
