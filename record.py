@@ -2,6 +2,7 @@ import sys
 import re
 import openpyxl
 import os
+import common.globalConfig
 
 def main():
     path = "ranking/"
@@ -17,6 +18,8 @@ def main():
         for row in wb.active.rows:
             code = row[0].value
             if code == "Code":
+                continue
+            if code in common.globalConfig.blackList:
                 continue
             record = 0
             for j in range(1,len(list(row)) - 1):
