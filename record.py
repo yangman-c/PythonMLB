@@ -4,6 +4,20 @@ import openpyxl
 import os
 import common.globalConfig
 
+class RecordInfo(object):
+    def __init__(self, code):
+        self.code = code
+        self.totalTimes = 0
+        self.totalRecord = 0
+        return
+    def addRecord(self, record):
+        self.totalRecord += record
+        self.totalTimes += 1
+    def getRecord(self):
+        return self.totalRecord / self.totalTimes
+    def getTotalTimes(self):
+        return self.totalTimes
+
 def main():
     path = "ranking/"
     fileList = os.listdir(path)
@@ -26,15 +40,17 @@ def main():
                 if row[j].value == 1:
                     record += 1
             if code in dic:
-                dic[code] += record
+                pass
             else:
-                dic[code] = record
+                dic[code] = RecordInfo(code)
+            dic[code].addRecord(record)
+
     wb = openpyxl.Workbook()
     wb.active.title = "{}日得分".format(i)
-    wb.active.append(("Code", "Record"))
-    for (key, record) in dic.items():
-        print(key, record/i)
-        wb.active.append((str(key), record/i))
+    wb.active.append(("Code", "Record", "Times"))
+    for (key, recordInfo) in dic.items():
+        print(key, recordInfo.getRecord())
+        wb.active.append((str(key), recordInfo.getRecord(), recordInfo.getTotalTimes()))
     wb.save(path + "record.xlsx")
     return
 
