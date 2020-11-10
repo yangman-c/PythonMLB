@@ -133,13 +133,14 @@ con = connnectDB()
 # createTable(con, "000300")
 
 heads = common.globalConfig.heads
+blacklist = common.globalConfig.blackList
 for head in heads:
     for i in range(0, 1000):
         code = "{}{}".format(head, str(i).zfill(3))
-
-        err = createTable(con, code, "s")
-        if err != None:
-            print(err)
+        if not code in blacklist:
+            err = createTable(con, code, "s")
+            if err != None:
+                print(err)
             
 createTable(con, "000001", "z")
 createTable(con, "399001", "z")

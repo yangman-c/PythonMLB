@@ -84,7 +84,8 @@ def main():
     for head in heads:
         for i in range(1000):
             code = "{}{}".format(head, str(i).zfill(3))
-            readDB(con, "s_{}".format(code))
+            if not code in common.globalConfig.blackList:
+                readDB(con, "s_{}".format(code))
 
     readDB(con, "z_000001")
     readDB(con, "z_399001")

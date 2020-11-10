@@ -83,17 +83,19 @@ def makeRanking(i, con, xlsx:rankingxls.RankingXls):
 
     allData = list([])
     heads = common.globalConfig.heads
+    blacklist = common.globalConfig.blackList
     for head in heads:
         for j in range(1000):
             code = "{}{}".format(head, str(j).zfill(3))
-            err, info = readDB(con, "s_{}".format(code), n)
-            if err == None and info != None and info.roc >= getZSByCode(info.code).roc:
-                xlsx.setCodeN(info.code, i + 1, 1)
-                if info.code in numOfCode:
-                    numOfCode[info.code] = numOfCode[info.code] + 1
-                else:
-                    numOfCode[info.code] = 1
-                allData.append(info)
+            if not code in blacklist:
+                err, info = readDB(con, "s_{}".format(code), n)
+                if err == None and info != None and info.roc >= getZSByCode(info.code).roc:
+                    xlsx.setCodeN(info.code, i + 1, 1)
+                    if info.code in numOfCode:
+                        numOfCode[info.code] = numOfCode[info.code] + 1
+                    else:
+                        numOfCode[info.code] = 1
+                    allData.append(info)
 
 
     # allData = filter(lambda TestInfo:TestInfo.roc > getZSByCode(TestInfo.code).roc, allData)

@@ -20,11 +20,12 @@ heads = common.globalConfig.heads
 for head in heads:
     for i in range(1000):
         code = "{}{}".format(head, str(i).zfill(3))
-        err, data = readData("s_{}".format(code))
-        if err != None:
-            print("err:{} code:{}".format(err, code))
-        # if err == None:
-            # allData.append(data)
+        if not code in common.globalConfig.blackList:
+            err, data = readData("s_{}".format(code))
+            if err != None:
+                print("err:{} code:{}".format(err, code))
+            # if err == None:
+                # allData.append(data)
 
 # err, z_000001 = readData("z_000001")
 # err, z_399001 = readData("z_399001")

@@ -52,7 +52,8 @@ def main():
     for head in globalConfig.heads:
         for i in range(1000):
             code = "{}{}".format(head, str(i).zfill(3))
-            setPJTJInExl(code, wb)
+            if not code in globalConfig.blackList:
+                setPJTJInExl(code, wb)
     wb.save("report/report_{}.xlsx".format(date.today()))
 
 print("start! {}".format(time.strftime("%Y/%m/%d %H:%M:%S")))
