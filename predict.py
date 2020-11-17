@@ -25,6 +25,7 @@ def connectDB()->pymysql.connect:
 z_000001 = []
 z_399001 = []
 z_399006 = []
+# 读取三大指数
 def readZS(con:pymysql.connect):
     cursor = con.cursor()
     global z_000001, z_399001, z_399006
@@ -51,7 +52,7 @@ def readZS(con:pymysql.connect):
     z_399001 = data[:maxLen-len(z_399001)] + z_399001
     z_399006 = data[:maxLen-len(z_399006)] + z_399006
 
-
+# 通过code读取指数
 def getZSByCode(code):
     head = code[0]
     if head == "6":
