@@ -46,8 +46,10 @@ def getData(code, valueType, begin)->str:
         url = getKLineDayUrl(0, code, begin, t)
     elif codeHead == "3":
         url = getKLineDayUrl(0, code, begin, t)
+    elif codeHead == "7":
+        url = getKLineDayUrl(1, code, begin, t)
     else:
-        url = url
+        url = getKLineDayUrl(1, code, begin, t)
     req = Request(url)
     respones = None
     try:
