@@ -1,4 +1,4 @@
-start! 2020/12/14 15:22:55
+start! 2020/12/15 15:04:41
 open db:stock
 handle:000000
 no data.code:000000
@@ -1135,7 +1135,7 @@ insert 1 row
 handle:000571
 insert 1 row
 handle:000572
-insert 2 row
+insert 1 row
 handle:000573
 insert 1 row
 handle:000574
@@ -5411,8 +5411,7 @@ insert 1 row
 handle:300710
 insert 1 row
 handle:300711
-err:<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
-<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
+insert 2 row
 handle:300712
 insert 1 row
 handle:300713
@@ -7172,7 +7171,7 @@ insert 1 row
 handle:600594
 insert 1 row
 handle:600595
-insert 0 row
+insert 1 row
 handle:600596
 insert 1 row
 handle:600597
@@ -10016,7 +10015,7 @@ insert 1 row
 handle:603020
 insert 1 row
 handle:603021
-insert 1 row
+insert 0 row
 handle:603022
 insert 1 row
 handle:603023
@@ -12066,7 +12065,8 @@ no data.code:688044
 handle:688045
 no data.code:688045
 handle:688046
-no data.code:688046
+err:<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
+<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
 handle:688047
 no data.code:688047
 handle:688048
@@ -12078,7 +12078,8 @@ insert 1 row
 handle:688051
 insert 1 row
 handle:688052
-no data.code:688052
+err:<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
+<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
 handle:688053
 no data.code:688053
 handle:688054
@@ -14430,8 +14431,7 @@ no data.code:689226
 handle:689227
 no data.code:689227
 handle:689228
-err:<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
-<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
+no data.code:689228
 handle:689229
 no data.code:689229
 handle:689230
@@ -17373,7 +17373,7 @@ no data.code:787697
 handle:787698
 no data.code:787698
 handle:787699
-insert 0 row
+no data.code:787699
 handle:787700
 no data.code:787700
 handle:787701
@@ -17980,4 +17980,4 @@ handle:399001
 insert 1 row
 handle:399006
 insert 1 row
-over! 2020/12/14 15:33:30
+over! 2020/12/15 15:15:18
