@@ -1,4 +1,4 @@
-start! 2020/12/15 15:04:41
+start! 2020/12/16 15:06:34
 open db:stock
 handle:000000
 no data.code:000000
@@ -1979,7 +1979,7 @@ insert 1 row
 handle:000994
 no data.code:000994
 handle:000995
-insert 0 row
+insert 1 row
 handle:000996
 insert 1 row
 handle:000997
@@ -2149,7 +2149,7 @@ insert 1 row
 handle:002079
 insert 1 row
 handle:002080
-insert 0 row
+insert 1 row
 handle:002081
 insert 1 row
 handle:002082
@@ -5001,7 +5001,7 @@ insert 1 row
 handle:300505
 insert 1 row
 handle:300506
-insert 1 row
+insert 0 row
 handle:300507
 insert 1 row
 handle:300508
@@ -5411,7 +5411,7 @@ insert 1 row
 handle:300710
 insert 1 row
 handle:300711
-insert 2 row
+insert 1 row
 handle:300712
 insert 1 row
 handle:300713
@@ -6339,7 +6339,7 @@ no data.code:600174
 handle:600175
 insert 0 row
 handle:600176
-insert 0 row
+insert 1 row
 handle:600177
 insert 1 row
 handle:600178
@@ -12065,8 +12065,7 @@ no data.code:688044
 handle:688045
 no data.code:688045
 handle:688046
-err:<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
-<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
+no data.code:688046
 handle:688047
 no data.code:688047
 handle:688048
@@ -12078,8 +12077,7 @@ insert 1 row
 handle:688051
 insert 1 row
 handle:688052
-err:<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
-<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
+no data.code:688052
 handle:688053
 no data.code:688053
 handle:688054
@@ -12995,7 +12993,7 @@ insert 1 row
 handle:688509
 no data.code:688509
 handle:688510
-insert 0 row
+insert 1 row
 handle:688511
 no data.code:688511
 handle:688512
@@ -13191,7 +13189,7 @@ no data.code:688606
 handle:688607
 no data.code:688607
 handle:688608
-insert 0 row
+insert 1 row
 handle:688609
 no data.code:688609
 handle:688610
@@ -17311,7 +17309,7 @@ no data.code:787666
 handle:787667
 no data.code:787667
 handle:787668
-insert 0 row
+no data.code:787668
 handle:787669
 no data.code:787669
 handle:787670
@@ -17980,4 +17978,4 @@ handle:399001
 insert 1 row
 handle:399006
 insert 1 row
-over! 2020/12/15 15:15:18
+over! 2020/12/16 15:17:31

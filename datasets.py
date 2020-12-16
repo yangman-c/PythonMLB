@@ -28,6 +28,8 @@ def insertData(con:pymysql.connect, kLineData:list, table: object)->bool:
     except Exception as err:
         return False
 
+# 这个地址也能拉到数据
+# http://qt.gtimg.cn/q=sh600031
 def getKLineDayUrl(prev, id, begin, t)->str:
     return "http://push2his.eastmoney.com/api/qt/stock/kline/get?cb=jQuery1124009517967901227564_1597003341751&fields1=f1,f2,f3,f4,f5,f6&fields2=f51,f52,f53,f54,f55,f56,f57,f58,f59,f60,f61&ut=7eea3edcaed734bea9cbfc24409ed989&klt=101&fqt=1&secid={}.{}&beg={}&end=20500000&_={}".format(prev, id, begin, t)
 
