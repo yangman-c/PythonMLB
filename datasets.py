@@ -52,7 +52,7 @@ def getData(code, valueType, begin)->str:
         url = getKLineDayUrl(1, code, begin, t)
     else:
         url = getKLineDayUrl(1, code, begin, t)
-    req = Request(url)
+    # req = Request(url)
     respones = None
     try:
         respones = urlopen(url)
