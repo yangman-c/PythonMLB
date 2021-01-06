@@ -1,4 +1,4 @@
-start! 2021/01/05 15:01:26
+start! 2021/01/06 15:34:26
 open db:stock
 handle:000000
 no data.code:000000
@@ -2219,7 +2219,7 @@ insert 1 row
 handle:002114
 insert 1 row
 handle:002115
-insert 0 row
+insert 1 row
 handle:002116
 insert 1 row
 handle:002117
@@ -2359,7 +2359,8 @@ insert 1 row
 handle:002184
 insert 1 row
 handle:002185
-insert 1 row
+err:<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
+<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
 handle:002186
 insert 1 row
 handle:002187
@@ -3509,8 +3510,7 @@ insert 1 row
 handle:002759
 insert 1 row
 handle:002760
-err:<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
-<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
+insert 2 row
 handle:002761
 insert 1 row
 handle:002762
@@ -5846,7 +5846,7 @@ insert 0 row
 handle:300927
 insert 0 row
 handle:300928
-insert 0 row
+insert 1 row
 handle:300929
 insert 0 row
 handle:300930
@@ -5860,7 +5860,7 @@ insert 0 row
 handle:300934
 no data.code:300934
 handle:300935
-no data.code:300935
+insert 0 row
 handle:300936
 no data.code:300936
 handle:300937
@@ -10988,7 +10988,7 @@ insert 1 row
 handle:603506
 insert 1 row
 handle:603507
-insert 1 row
+insert 0 row
 handle:603508
 insert 1 row
 handle:603509
@@ -12032,7 +12032,7 @@ insert 1 row
 handle:688028
 insert 1 row
 handle:688029
-insert 1 row
+insert 0 row
 handle:688030
 insert 1 row
 handle:688031
@@ -12044,7 +12044,8 @@ insert 1 row
 handle:688034
 no data.code:688034
 handle:688035
-no data.code:688035
+err:<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
+<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
 handle:688036
 insert 1 row
 handle:688037
@@ -16608,7 +16609,7 @@ no data.code:787315
 handle:787316
 no data.code:787316
 handle:787317
-no data.code:787317
+insert 0 row
 handle:787318
 no data.code:787318
 handle:787319
@@ -17979,4 +17980,4 @@ handle:399001
 insert 1 row
 handle:399006
 insert 1 row
-over! 2021/01/05 15:13:13
+over! 2021/01/06 15:45:07
