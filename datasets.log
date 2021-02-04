@@ -1,4 +1,4 @@
-start! 2021/02/03 15:03:35
+start! 2021/02/04 15:20:16
 open db:stock
 handle:000000
 no data.code:000000
@@ -2567,7 +2567,7 @@ insert 1 row
 handle:002288
 insert 1 row
 handle:002289
-insert 0 row
+insert 1 row
 handle:002290
 insert 1 row
 handle:002291
@@ -2811,8 +2811,7 @@ insert 1 row
 handle:002410
 insert 1 row
 handle:002411
-err:<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
-<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
+insert 2 row
 handle:002412
 insert 1 row
 handle:002413
@@ -9420,8 +9419,7 @@ no data.code:601721
 handle:601722
 no data.code:601722
 handle:601723
-err:<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
-<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
+no data.code:601723
 handle:601724
 no data.code:601724
 handle:601725
@@ -10619,7 +10617,7 @@ insert 1 row
 handle:603321
 insert 1 row
 handle:603322
-insert 1 row
+insert 0 row
 handle:603323
 insert 1 row
 handle:603324
@@ -12133,7 +12131,7 @@ insert 1 row
 handle:688078
 insert 1 row
 handle:688079
-no data.code:688079
+insert 0 row
 handle:688080
 insert 1 row
 handle:688081
@@ -13367,7 +13365,7 @@ no data.code:688694
 handle:688695
 no data.code:688695
 handle:688696
-no data.code:688696
+insert 0 row
 handle:688697
 no data.code:688697
 handle:688698
@@ -16093,7 +16091,7 @@ no data.code:787057
 handle:787058
 no data.code:787058
 handle:787059
-insert 0 row
+no data.code:787059
 handle:787060
 no data.code:787060
 handle:787061
@@ -17213,7 +17211,7 @@ no data.code:787617
 handle:787618
 no data.code:787618
 handle:787619
-no data.code:787619
+insert 0 row
 handle:787620
 no data.code:787620
 handle:787621
@@ -17795,7 +17793,8 @@ no data.code:787908
 handle:787909
 no data.code:787909
 handle:787910
-no data.code:787910
+err:<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
+<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
 handle:787911
 no data.code:787911
 handle:787912
@@ -17980,4 +17979,4 @@ handle:399001
 insert 1 row
 handle:399006
 insert 1 row
-over! 2021/02/03 15:16:39
+over! 2021/02/04 15:33:47
