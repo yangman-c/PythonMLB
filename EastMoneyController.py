@@ -3,7 +3,7 @@ import json
 from urllib.request import urlopen, Request
 
 class EastMoneyController:
-    def __init__(self):
+    def __init__(self, cookie: str):
         # 从网页上拔下来的，必须带这个头，否则将被403。这里面可能有登录信息
         self.headers = {
             'Accept': '*/*',
@@ -11,10 +11,11 @@ class EastMoneyController:
             'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.146 Safari/537.36',
             'Referer': 'http://quote.eastmoney.com/',
             'host': 'myfavor.eastmoney.com',
-            'Cookie': 'qgqp_b_id=3815b4a4d87774a2e3ccb5c584ae133e; st_si=08039223976786; p_origin=http%3A%2F%2Fpassport2.eastmoney.com; ct=OfKOBzxLyUwUgTZKBn2OVBknkWRf59rzZeYr9QL8AlpZfNf_PS5ytDxJvz8rO2khwpb_SRoOOTJ9ROH2IwYxZry7BnmCwBK506c0cvQEZphxtgIskI_DOAde-LjcQXWHJzP5_I3PKtimRmavqLu7j7t0fx86iRF8i4l19l8ouAw; ut=FobyicMgeV49XUj9B_m01evqF4A4hiLnvP2qQeO0nI1J_30JWSqygD3tQf199fVaYG-89_P5WGwB7mkIAOJLB2bDsuD8ct8eT_rpwoBgSLibtDpdcCp94y3m7_E19li0AqsQltL2KSXihiHsH2phP549BTMX1SJnwD27byPb81UMXZNdw5F5GH8KtvlsI-cr5Ru3U58yZRTmvd90M_2ChailhqusZ9BnPgQe8RRyU8YQEiJROjxWk2SClWdz6PwHxZODXA2eI2ZBQOdpxdpK29vpyOjKZj1v; pi=7723166100673646%3bb7723166100673646%3b%e8%82%a1%e5%8f%8b0761W5651a%3bkulFa6bHv%2bkCAnGRL%2fqaNI0pwXzRUhnqU1k9ADrkL5lJwiEksbVxLoppaa%2bAUt77Xug80ePUj6mRxsob0ZFzEQQpA2o5xOqQGsbl9UXLRALLPROMkdAS81bjHMS2Ev%2f%2fVTsaQgfghhtTPZbYhXuUa1cyXH5InweMGTOgr%2fuCkgOjsDmIn9helIpjFQU02XpTyHbfn6od%3bq7YjmOXArmdSeJmEPpt%2bM5Ia9ko0BJuzHYcmlINFap7OXbVOI4YjimAsVnW9MXIWksnUeG%2fYOxDe%2bz0A4mCTansyfKKhlZkUypWQnnpzRPk04QMz43eJYsL7kFTKa2oxDrQvXOjv%2bDJDUswEfxONife1%2bFej%2bQ%3d%3d; uidal=7723166100673646%e8%82%a1%e5%8f%8b0761W5651a; sid=136059598; vtpst=|; st_pvi=03185002285832; st_sp=2021-02-04%2022%3A32%3A58; st_inirUrl=http%3A%2F%2Fpassport2.eastmoney.com%2F; st_sn=2; st_psi=20210204223332555-113200301712-2853517140; st_asi=20210204223332555-113200301712-2853517140-Web_so_ss-2',
+            'Cookie': f"{cookie}",
             'Connection': 'keep-alive',
             'Accept-Language': 'zh-CN,zh;q=0.9'
         }
+
         self.getGroupInfo()
 
     # 由于有登录人肉验证，所以自动登录暂时没有实现
@@ -76,6 +77,7 @@ class EastMoneyController:
         if head == "0" or head == "3":
             sc = 0
         url = f"http://myfavor.eastmoney.com/v4/webouter/as?appkey=d41d8cd98f00b204e9800998ecf8427e&cb=&g={self.ginfolist[-1]['gid']}&sc={sc}%24{code}&_="
+        # url = f"http://myfavor.eastmoney.com/v4/webouter/ag?appkey=d41d8cd98f00b204e9800998ecf8427e&cb=jQuery3310367844530115673_1612534618307&gn=ggg&_=1612534618314"
         response, err = self.sendRequest(url, "addNewCode")
         if err != None:
             print(f"err:{err} code:{code}")
