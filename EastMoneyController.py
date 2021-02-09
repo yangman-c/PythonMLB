@@ -43,13 +43,13 @@ class EastMoneyController:
             return
 
     # 检测分组状况，并创建新组
-    def checkAndCreateNewGroup(self):
+    def checkAndCreateNewGroup(self, groupName: str):
         # 最大分组数为8，若当前已经有8组，则删除第二组(第一组是默认自选，留下的是重点关注的股，从第二分组开始，是每日整理出来的优势股)
         if len(self.ginfolist) >= 8:
             deleteGid = self.ginfolist[1]['gid']
             del self.ginfolist[1]
             self.deleteGroup(deleteGid)
-        self.createNewGroup(f"autoGroup{self.ginfolist[len(self.ginfolist) - 1]['gid']}")
+        self.createNewGroup(groupName)
 
     # 创建新组
     def createNewGroup(self, groupName:str):

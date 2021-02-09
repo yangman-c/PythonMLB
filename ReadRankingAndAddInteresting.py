@@ -15,23 +15,29 @@ def addInteresting(readFile, recordLine, newGroup):
         print(err)
         sys.exit()
 
+    ctls = []
     for cookie in (cookie1, cookie2):
         ctl = EastMoneyController.EastMoneyController(cookie)
+        ctls.append(ctl)
         if newGroup == "y":
-            ctl.checkAndCreateNewGroup()
+            groupName = readFile[readFile.index("Ranking_") + len("Ranking_"):]
+            groupName = groupName.replace(".xlsx", "").replace("-", "")
+            ctl.checkAndCreateNewGroup(groupName)
 
-        for row in wb.active.rows:
-            code = row[0].value
-            if code == "Code":
-                continue
-            if code in common.globalConfig.blackList:
-                continue
-            record = 0
-            for j in range(1,len(list(row)) - 1):
-                if row[j].value == 1:
-                    record += 1
+    for row in wb.active.rows:
+        code = row[0].value
+        # 删除第一行
+        if code == "Code":
+            continue
+        if code in common.globalConfig.blackList:
+            continue
+        record = 0
+        for j in range(1,len(list(row)) - 1):
+            if row[j].value == 1:
+                record += 1
 
-            if record >= int(recordLine):
+        if record >= int(recordLine):
+            for ctl in ctls:
                 ctl.addNewCode(code)
 
     print("addInteresting ok")
