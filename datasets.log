@@ -1,4 +1,4 @@
-start! 2021/02/10 15:05:30
+start! 2021/02/18 15:02:10
 open db:stock
 handle:000000
 no data.code:000000
@@ -1119,7 +1119,7 @@ insert 1 row
 handle:000563
 insert 1 row
 handle:000564
-insert 1 row
+insert 0 row
 handle:000565
 insert 1 row
 handle:000566
@@ -1197,7 +1197,7 @@ insert 1 row
 handle:000602
 insert 0 row
 handle:000603
-insert 1 row
+insert 0 row
 handle:000604
 no data.code:000604
 handle:000605
@@ -6427,7 +6427,7 @@ insert 1 row
 handle:600220
 insert 1 row
 handle:600221
-insert 1 row
+insert 0 row
 handle:600222
 insert 1 row
 handle:600223
@@ -7013,7 +7013,7 @@ insert 1 row
 handle:600514
 no data.code:600514
 handle:600515
-insert 1 row
+insert 0 row
 handle:600516
 insert 1 row
 handle:600517
@@ -10499,8 +10499,7 @@ no data.code:603261
 handle:603262
 no data.code:603262
 handle:603263
-err:<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
-<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
+no data.code:603263
 handle:603264
 no data.code:603264
 handle:603265
@@ -11328,7 +11327,7 @@ no data.code:603675
 handle:603676
 insert 1 row
 handle:603677
-insert 1 row
+insert 0 row
 handle:603678
 insert 1 row
 handle:603679
@@ -11614,7 +11613,8 @@ insert 1 row
 handle:603819
 insert 1 row
 handle:603820
-no data.code:603820
+err:<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
+<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
 handle:603821
 no data.code:603821
 handle:603822
@@ -17212,7 +17212,7 @@ no data.code:787617
 handle:787618
 no data.code:787618
 handle:787619
-insert 0 row
+no data.code:787619
 handle:787620
 no data.code:787620
 handle:787621
@@ -17979,4 +17979,4 @@ handle:399001
 insert 1 row
 handle:399006
 insert 1 row
-over! 2021/02/10 15:15:31
+over! 2021/02/18 15:13:07
