@@ -83,8 +83,40 @@ class EastMoneyController:
             print(f"err:{err} code:{code}")
             return
 
+def getSecid(code:str):
+    head = code[0]
+    if head == "0" or head == "3":
+        return 0
+    else:
+        return 1
+
+def sendRequest(url:str):
+    req = Request(url, method="GET")
+    print(url)
+    try:
+        response = urlopen(req)
+    except Exception as err:
+        print(err)
+        return None, err
+    return response, None
+    # response = json.loads(response.read().decode('utf-8'))
+    # print(f"{methodName}, message:{response['message']}")
+    # if response['message'] != "成功":
+    #     return response, Exception("response['message']")
+    # return response, None
+
+def getInfo(code):
+    url = f"http://push2.eastmoney.com/api/qt/slist/get?spt=1&np=3&fltt=2&invt=2&fields=f9,f12,f13,f14,f20,f23,f37,f45,f49,f134,f135,f129,f1000,f2000,f3000&ut=bd1d9ddb04089700cf9c27f6f7426281&cb=&secid={getSecid(code)}.{code}&_="
+    response, err = sendRequest(url)
+    if err != None:
+        print(f"err:{err} code:{code}")
+        return
+    print(response.read().decode('utf-8'))
 
 # ctl = EastMoneyController()
 # ctl.addNewCode("601100")
 # print(f"{time.time()*1000:10.0f}")
 # sys.exit()
+
+if __name__ == '__main__':
+    getInfo("600031")
