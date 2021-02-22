@@ -1,8 +1,8 @@
-import EastMoneyController
 import sys
 import openpyxl
-import common.globalConfig
-import common.eastmoneycookies
+from common.globalConfig import blackList
+from eastmoney.EastMoneyController import EastMoneyController
+from eastmoney.eastmoneycookies import allCooies
 
 def addInteresting(readFile, recordLine, newGroup):
     print(f"readFile:{readFile} recordLine:{recordLine} newGroup:{newGroup}")
@@ -13,8 +13,8 @@ def addInteresting(readFile, recordLine, newGroup):
         sys.exit()
 
     ctls = []
-    for cookie in common.eastmoneycookies.allCooies:
-        ctl = EastMoneyController.EastMoneyController(cookie)
+    for cookie in allCooies:
+        ctl = EastMoneyController(cookie)
         ctls.append(ctl)
         if newGroup == "y":
             groupName = readFile[readFile.index("Ranking_") + len("Ranking_"):]
@@ -26,7 +26,7 @@ def addInteresting(readFile, recordLine, newGroup):
         # 删除第一行
         if code == "Code":
             continue
-        if code in common.globalConfig.blackList:
+        if code in blackList:
             continue
         record = 0
         for j in range(1,len(list(row)) - 1):
