@@ -38,7 +38,7 @@ info, err = readDB(con, "s_000001", 1)
 print(info)
 
 t = int(time.time() * 1000)
-response, err = getKLineDayUrl(1, "000001", "20210305", t)
+response, err = getKLineDayUrl(1, "000001", time.strftime("%Y%m%d"), t)
 dateStr:str = response['data']['klines'][0][0:10]
 year = int(dateStr[0:4])
 month = int(dateStr[5:7])
@@ -50,7 +50,7 @@ d = date(year=year, month = month, day=day)
 if d > info:
     os.system("maintask.bat")
 else:
-    print("no task")
+    print(f"no task newD:{d} curD:{info}")
 
 if __name__ == '__main__':
     sys.exit()
