@@ -1,4 +1,4 @@
-start! 2021/03/19 15:10:05
+start! 2021/03/22 15:10:05
 open db:stock
 handle:000000
 no data.code:000000
@@ -1801,7 +1801,7 @@ no data.code:000904
 handle:000905
 insert 1 row
 handle:000906
-insert 0 row
+insert 1 row
 handle:000907
 no data.code:000907
 handle:000908
@@ -2131,7 +2131,7 @@ insert 1 row
 handle:002070
 insert 0 row
 handle:002071
-insert 0 row
+insert 1 row
 handle:002072
 insert 1 row
 handle:002073
@@ -2373,7 +2373,7 @@ insert 1 row
 handle:002191
 insert 1 row
 handle:002192
-insert 0 row
+insert 1 row
 handle:002193
 insert 1 row
 handle:002194
@@ -2627,7 +2627,7 @@ insert 1 row
 handle:002318
 insert 1 row
 handle:002319
-insert 1 row
+insert 0 row
 handle:002320
 insert 1 row
 handle:002321
@@ -2829,7 +2829,7 @@ insert 1 row
 handle:002419
 insert 1 row
 handle:002420
-insert 0 row
+insert 1 row
 handle:002421
 insert 1 row
 handle:002422
@@ -4927,7 +4927,7 @@ insert 1 row
 handle:300468
 insert 1 row
 handle:300469
-insert 0 row
+insert 1 row
 handle:300470
 insert 1 row
 handle:300471
@@ -5907,7 +5907,7 @@ insert 0 row
 handle:300958
 insert 0 row
 handle:300959
-insert 0 row
+insert 1 row
 handle:300960
 insert 0 row
 handle:300961
@@ -6403,7 +6403,7 @@ insert 1 row
 handle:600208
 insert 1 row
 handle:600209
-insert 0 row
+insert 1 row
 handle:600210
 insert 1 row
 handle:600211
@@ -7477,7 +7477,7 @@ insert 0 row
 handle:600748
 insert 1 row
 handle:600749
-insert 0 row
+insert 1 row
 handle:600750
 insert 1 row
 handle:600751
@@ -7675,7 +7675,7 @@ insert 1 row
 handle:600849
 insert 0 row
 handle:600850
-insert 0 row
+insert 1 row
 handle:600851
 insert 1 row
 handle:600852
@@ -7759,7 +7759,7 @@ insert 1 row
 handle:600891
 insert 1 row
 handle:600892
-insert 1 row
+insert 0 row
 handle:600893
 insert 1 row
 handle:600894
@@ -13195,7 +13195,7 @@ insert 0 row
 handle:688610
 no data.code:688610
 handle:688611
-no data.code:688611
+insert 0 row
 handle:688612
 no data.code:688612
 handle:688613
@@ -13339,7 +13339,7 @@ no data.code:688681
 handle:688682
 no data.code:688682
 handle:688683
-no data.code:688683
+insert 0 row
 handle:688684
 no data.code:688684
 handle:688685
@@ -17185,7 +17185,7 @@ no data.code:787604
 handle:787605
 no data.code:787605
 handle:787606
-insert 0 row
+no data.code:787606
 handle:787607
 no data.code:787607
 handle:787608
@@ -17239,7 +17239,7 @@ no data.code:787631
 handle:787632
 no data.code:787632
 handle:787633
-insert 0 row
+no data.code:787633
 handle:787634
 no data.code:787634
 handle:787635
@@ -17291,7 +17291,7 @@ no data.code:787657
 handle:787658
 no data.code:787658
 handle:787659
-no data.code:787659
+insert 0 row
 handle:787660
 no data.code:787660
 handle:787661
@@ -17978,4 +17978,4 @@ handle:399001
 insert 1 row
 handle:399006
 insert 1 row
-over! 2021/03/19 15:19:23
+over! 2021/03/22 15:20:51
