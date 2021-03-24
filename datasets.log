@@ -1,4 +1,4 @@
-start! 2021/03/23 15:10:07
+start! 2021/03/24 15:10:07
 open db:stock
 handle:000000
 no data.code:000000
@@ -233,8 +233,7 @@ no data.code:000116
 handle:000117
 no data.code:000117
 handle:000118
-err:<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
-<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
+no data.code:000118
 handle:000119
 no data.code:000119
 handle:000120
@@ -2728,7 +2727,7 @@ insert 1 row
 handle:002368
 insert 1 row
 handle:002369
-insert 1 row
+insert 0 row
 handle:002370
 insert 1 row
 handle:002371
@@ -5900,7 +5899,7 @@ insert 1 row
 handle:300954
 no data.code:300954
 handle:300955
-insert 0 row
+insert 1 row
 handle:300956
 insert 0 row
 handle:300957
@@ -5926,7 +5925,7 @@ insert 0 row
 handle:300967
 insert 0 row
 handle:300968
-no data.code:300968
+insert 0 row
 handle:300969
 no data.code:300969
 handle:300970
@@ -6478,7 +6477,7 @@ no data.code:600244
 handle:600245
 no data.code:600245
 handle:600246
-insert 0 row
+insert 1 row
 handle:600247
 insert 0 row
 handle:600248
@@ -7394,7 +7393,7 @@ insert 1 row
 handle:600706
 insert 1 row
 handle:600707
-insert 1 row
+insert 0 row
 handle:600708
 insert 1 row
 handle:600709
@@ -7402,8 +7401,7 @@ insert 0 row
 handle:600710
 insert 1 row
 handle:600711
-err:<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
-<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
+insert 2 row
 handle:600712
 insert 1 row
 handle:600713
@@ -13241,7 +13239,7 @@ no data.code:688631
 handle:688632
 no data.code:688632
 handle:688633
-insert 0 row
+insert 1 row
 handle:688634
 no data.code:688634
 handle:688635
@@ -13301,7 +13299,7 @@ insert 0 row
 handle:688662
 insert 0 row
 handle:688663
-no data.code:688663
+insert 0 row
 handle:688664
 no data.code:688664
 handle:688665
@@ -17297,7 +17295,7 @@ insert 0 row
 handle:787660
 no data.code:787660
 handle:787661
-insert 0 row
+no data.code:787661
 handle:787662
 insert 0 row
 handle:787663
@@ -17980,4 +17978,4 @@ handle:399001
 insert 1 row
 handle:399006
 insert 1 row
-over! 2021/03/23 15:21:37
+over! 2021/03/24 15:20:14
