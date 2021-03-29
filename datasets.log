@@ -1,4 +1,4 @@
-start! 2021/03/26 15:10:00
+start! 2021/03/29 15:10:01
 open db:stock
 handle:000000
 no data.code:000000
@@ -5905,11 +5905,11 @@ insert 1 row
 handle:300957
 insert 1 row
 handle:300958
-insert 0 row
+insert 1 row
 handle:300959
 insert 1 row
 handle:300960
-insert 0 row
+insert 1 row
 handle:300961
 insert 0 row
 handle:300962
@@ -5939,9 +5939,9 @@ insert 0 row
 handle:300974
 no data.code:300974
 handle:300975
-no data.code:300975
+insert 0 row
 handle:300976
-no data.code:300976
+insert 0 row
 handle:300977
 no data.code:300977
 handle:300978
@@ -6761,7 +6761,7 @@ insert 1 row
 handle:600388
 insert 1 row
 handle:600389
-insert 1 row
+insert 0 row
 handle:600390
 insert 1 row
 handle:600391
@@ -11949,7 +11949,7 @@ insert 1 row
 handle:603987
 insert 1 row
 handle:603988
-insert 0 row
+insert 1 row
 handle:603989
 insert 1 row
 handle:603990
@@ -12631,7 +12631,7 @@ no data.code:688327
 handle:688328
 insert 1 row
 handle:688329
-insert 0 row
+insert 1 row
 handle:688330
 insert 1 row
 handle:688331
@@ -13039,7 +13039,7 @@ no data.code:688531
 handle:688532
 no data.code:688532
 handle:688533
-no data.code:688533
+insert 0 row
 handle:688534
 no data.code:688534
 handle:688535
@@ -13295,7 +13295,7 @@ insert 0 row
 handle:688660
 no data.code:688660
 handle:688661
-insert 0 row
+insert 1 row
 handle:688662
 insert 0 row
 handle:688663
@@ -16909,7 +16909,7 @@ no data.code:787466
 handle:787467
 no data.code:787467
 handle:787468
-no data.code:787468
+insert 0 row
 handle:787469
 no data.code:787469
 handle:787470
@@ -17031,7 +17031,8 @@ no data.code:787527
 handle:787528
 no data.code:787528
 handle:787529
-no data.code:787529
+err:[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+[WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
 handle:787530
 no data.code:787530
 handle:787531
@@ -17047,7 +17048,8 @@ no data.code:787535
 handle:787536
 no data.code:787536
 handle:787537
-no data.code:787537
+err:<urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
+<urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>
 handle:787538
 no data.code:787538
 handle:787539
@@ -17291,7 +17293,7 @@ no data.code:787657
 handle:787658
 no data.code:787658
 handle:787659
-insert 0 row
+no data.code:787659
 handle:787660
 no data.code:787660
 handle:787661
@@ -17978,4 +17980,4 @@ handle:399001
 insert 1 row
 handle:399006
 insert 1 row
-over! 2021/03/26 15:19:44
+over! 2021/03/29 15:20:24
