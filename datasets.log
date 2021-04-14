@@ -1,4 +1,4 @@
-start! 2021/04/13 15:10:05
+start! 2021/04/14 15:10:01
 open db:stock
 handle:000000
 no data.code:000000
@@ -2341,7 +2341,7 @@ insert 1 row
 handle:002175
 insert 1 row
 handle:002176
-insert 0 row
+insert 1 row
 handle:002177
 insert 1 row
 handle:002178
@@ -2601,7 +2601,7 @@ insert 1 row
 handle:002305
 insert 1 row
 handle:002306
-insert 0 row
+insert 1 row
 handle:002307
 insert 1 row
 handle:002308
@@ -2889,7 +2889,7 @@ insert 1 row
 handle:002449
 insert 1 row
 handle:002450
-insert 0 row
+insert 1 row
 handle:002451
 insert 1 row
 handle:002452
@@ -3499,7 +3499,7 @@ insert 1 row
 handle:002754
 no data.code:002754
 handle:002755
-insert 1 row
+insert 0 row
 handle:002756
 insert 1 row
 handle:002757
@@ -6621,7 +6621,7 @@ insert 0 row
 handle:600318
 insert 1 row
 handle:600319
-insert 2 row
+insert 1 row
 handle:600320
 insert 1 row
 handle:600321
@@ -6639,7 +6639,7 @@ insert 1 row
 handle:600327
 insert 1 row
 handle:600328
-insert 2 row
+insert 1 row
 handle:600329
 insert 1 row
 handle:600330
@@ -7027,7 +7027,8 @@ insert 1 row
 handle:600521
 insert 1 row
 handle:600522
-insert 1 row
+err:<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
+<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
 handle:600523
 insert 1 row
 handle:600524
@@ -7609,7 +7610,7 @@ insert 0 row
 handle:600814
 insert 1 row
 handle:600815
-insert 1 row
+insert 0 row
 handle:600816
 insert 1 row
 handle:600817
@@ -12199,7 +12200,7 @@ insert 1 row
 handle:688112
 no data.code:688112
 handle:688113
-no data.code:688113
+insert 0 row
 handle:688114
 no data.code:688114
 handle:688115
@@ -14609,8 +14610,7 @@ no data.code:689316
 handle:689317
 no data.code:689317
 handle:689318
-err:<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
-<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>
+no data.code:689318
 handle:689319
 no data.code:689319
 handle:689320
@@ -17040,7 +17040,7 @@ no data.code:787531
 handle:787532
 no data.code:787532
 handle:787533
-insert 0 row
+no data.code:787533
 handle:787534
 no data.code:787534
 handle:787535
@@ -17979,4 +17979,4 @@ handle:399001
 insert 1 row
 handle:399006
 insert 1 row
-over! 2021/04/13 15:20:56
+over! 2021/04/14 15:21:06
